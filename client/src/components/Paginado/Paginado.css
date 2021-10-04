@@ -1,0 +1,27 @@
+.ul {
+    width: 100%;
+}
+
+.flexPaged {
+    display        : flex;
+    justify-content: center;
+    flex-wrap      : wrap;
+}
+
+.flexPaged li {
+    margin-right    : 12px;
+    transition      : all 500ms;
+    color           : black;
+    /* padding         : 7px; */
+    background-color: #333333;
+    border-radius   : 7px;
+}
+
+.flexPaged button {
+    padding: 7px;
+    cursor          : pointer;
+}
+
+.flexPaged li:hover {
+    background-color: #ccc;
+}
