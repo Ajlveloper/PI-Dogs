@@ -46,6 +46,7 @@ const Dogs = () => {
     const dogsRender = dogsAll.slice(firstIndex, lastIndex);
 
     const paged = (num) => {
+        setLoading(true)
         setdogsCurrent(num)
     }
 
@@ -104,7 +105,6 @@ const Dogs = () => {
 
     /* Loading______________________________ */
     if (loading) {
-        console.log('Loading entro')
         setTimeout(() => {
             setLoading(false)
         }, 1000);
@@ -127,16 +127,6 @@ const Dogs = () => {
                 <div>
 
                     <div>
-                        {/* <form onSubmit={handleSearchBreed}>
-                            <label>Busqueda por raza</label>
-                            <input 
-                            type="text" 
-                            placeholder='Busqueda de Raza'
-                            value={search}
-                            onChange={handleSearch}
-                            />
-                            <button type='submit'>Buscar</button>
-                        </form> */}
 
                         <SearchBreed
                             handleSearchBreed={handleSearchBreed}
@@ -199,6 +189,7 @@ const Dogs = () => {
                                     temperament={d.temperaments[0].name || d.temperaments}
                                     weight_min={d.weight_min}
                                     weight_max={d.weight_max}
+                                    id={d.id}
                                 />
                             </div>
                         ))
@@ -212,6 +203,8 @@ const Dogs = () => {
                     paged={paged}
                     dogsPage={dogsPage}
                 />
+
+
 
             </>
         )

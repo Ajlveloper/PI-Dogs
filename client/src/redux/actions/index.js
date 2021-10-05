@@ -7,6 +7,7 @@ export const GET_FILTER_CREATED = 'GET_FILTER_CREATED';
 export const ORDER_ASC_DES = 'ORDER_ASC_DES';
 export const ORDER_ORDER_WEIGHT = 'ORDER_ORDER_WEIGHT';
 export const SEARCH_BREED = 'SEARCH_BREED';
+export const GET_DETAIL = 'GET_DETAIL';
 
 export const getDogs = () => {
     return async function (dispatch) {
@@ -19,11 +20,21 @@ export const getDogs = () => {
 }
 
 export const getTemperaments = () => {
-    return async function (dispatch) {
+    return async (dispatch) => {
         const temp = await axios.get('http://localhost:3001/temperaments')
         return dispatch({
             type: GET_TEMPERAMENTS,
             payload: temp.data
+        })
+    }
+}
+
+export const getDetail = (id) => {
+    return async (dispatch) => {
+        let detailDog = await axios.get(`http://localhost:3001/dogs/${id}`);
+        return dispatch({
+            type: GET_DETAIL,
+            payload: detailDog.data
         })
     }
 }

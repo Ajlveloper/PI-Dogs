@@ -3,6 +3,8 @@ import { Route } from 'react-router-dom';
 import LandingPage from './components/LandingPage/LandingPage';
 import Home from './components/Home/Home'
 import './App.css';
+import DogCreate from './components/DogCreate/DogCreate';
+import DogDetail from './components/Detail/DogDetail';
 
 function App() {
   return (
@@ -15,9 +17,23 @@ function App() {
       </Route>
 
       <Route
-        path = '/home'
+        path='/home'
       >
         <Home />
+      </Route>
+
+      <Route
+        exact
+        path='/createDog'
+      >
+        <DogCreate />
+      </Route>
+
+      <Route
+        exact
+        path='/detailDog/:idDog'
+      >
+        <DogDetail />
       </Route>
     </div>
   );

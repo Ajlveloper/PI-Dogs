@@ -6,7 +6,8 @@ import {
     GET_FILTER_CREATED,
     ORDER_ASC_DES,
     ORDER_ORDER_WEIGHT,
-    SEARCH_BREED
+    SEARCH_BREED,
+    GET_DETAIL
 } from '../actions/index';
 
 
@@ -14,7 +15,8 @@ const initialState = {
     dogs: [],
     temperamentAll: [],
     dogsSecond: [],
-    breedDogs: []
+    breedDogs: [],
+    dogDetail: {}
 }
 
 const reduce = (state = initialState, action) => {
@@ -74,9 +76,14 @@ const reduce = (state = initialState, action) => {
             }
         case SEARCH_BREED:
             let breed = state.dogsSecond;
-            let searchBreed = breed.filter(b => b.name.toLowerCase().includes(action.breed.toLowerCase()) || 'Not found');
+            let searchBreed = breed.filter(b => b.name.toLowerCase().includes(action.breed.toLowerCase()));
             return {
                 ...state, dogs: searchBreed
+            }
+        case GET_DETAIL:
+            // console.log(action.payload)
+            return {
+                ...state, dogDetail: action.payload
             }
 
         default:

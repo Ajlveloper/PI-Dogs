@@ -27,8 +27,8 @@ dogs.get('/dogs/:idRaza', async (req, res) => {
     const { idRaza } = req.params;
     const allDogs = await getAllDogs();
     if (idRaza) {
-        const dog = await allDogs.filter(d => d.id.toString() === idRaza);    
-        dog.length ? res.status(200).json(dog) : res.status(404).send('dog not found');
+        const dog = await allDogs.find(d => d.id.toString() === idRaza);    
+        dog ? res.status(200).json(dog) : res.status(404).send('dog not found');
     }
 })
 
@@ -38,8 +38,8 @@ dogs.post('/dogs', async (req, res) => {
         name,
         height_min,
         height_max,
-        weight_max,
         weight_min,
+        weight_max,
         life_span,
         temperaments,
         createDB,
