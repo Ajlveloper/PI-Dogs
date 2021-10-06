@@ -5,7 +5,7 @@ function FilterBreed({ handleChangeBreed, dogsAll }) {
         <>
             <label>Filter by Breed: </label>
             <select onChange={handleChangeBreed}>
-                <option value='allDogs'>All Dogs</option>
+                <option value='allDogs'>All the races</option>
                 {
                     dogsAll.map(d => (
                         <option

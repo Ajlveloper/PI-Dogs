@@ -30,10 +30,12 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     life_span: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false
     },
     image: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false
     },
     createDB: {
       type: DataTypes.BOOLEAN,

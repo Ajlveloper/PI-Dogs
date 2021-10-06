@@ -8,6 +8,8 @@ export const ORDER_ASC_DES = 'ORDER_ASC_DES';
 export const ORDER_ORDER_WEIGHT = 'ORDER_ORDER_WEIGHT';
 export const SEARCH_BREED = 'SEARCH_BREED';
 export const GET_DETAIL = 'GET_DETAIL';
+export const GET_CREATE = 'GET_CREATE';
+
 
 export const getDogs = () => {
     return async function (dispatch) {
@@ -38,6 +40,16 @@ export const getDetail = (id) => {
         })
     }
 }
+
+export const getCreate = (payload) => {
+    return async () => {
+        let createDog = await axios.post('http://localhost:3001/dogs', payload)
+        console.log(createDog)
+        return createDog;
+    }
+}
+
+
 
 export const getTemperamentFilter = (temperament) => {
     return {
@@ -75,8 +87,15 @@ export const getOrderWeight = (weight) => {
 }
 
 export const getBreedSearch = (breed) => {
-    return {
-        type: SEARCH_BREED,
-        breed
+    return async function (dispatch) {
+        const dog = await axios.get(`http://localhost:3001/dogs?name=${breed}`)
+        return dispatch({
+            type: GET_DOGS,
+            payload: dog.data,
+        })
     }
+    // return {
+    //     type: SEARCH_BREED,
+    //     breed
+    // }
 }

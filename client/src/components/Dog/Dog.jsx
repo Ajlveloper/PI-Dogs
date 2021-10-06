@@ -4,7 +4,7 @@ import './Dog.css';
 
 export default function Dog({ img, name, temperament, weight_min, weight_max, id }) {
     return (
-        <div>
+        <li>
             <img src={img} alt={name} />
             <Link to={`/detailDog/${id}`}>
                 <li>{name}</li>
@@ -12,6 +12,6 @@ export default function Dog({ img, name, temperament, weight_min, weight_max, id
             <p>Temperanto: {temperament} </p>
             <p>Peso min: {weight_min}</p>
             <p>Peso max: {weight_max}</p>
-        </div>
+        </li>
     )
 }

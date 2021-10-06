@@ -1,11 +1,12 @@
 const express = require('express');
 const dogs = express.Router();
-const { 
+const {
     getDogsApi,
     getDogsDb,
     getAllDogs
- } = require('../controllers/controllerDogs.js');
- const { Dog, Temperament } = require('../db.js')
+} = require('../controllers/controllerDogs.js');
+
+const { Dog, Temperament } = require('../db.js')
 
 dogs.use(express.json());
 
@@ -13,27 +14,40 @@ dogs.get('/dogs', async (req, res) => {
     const { name } = req.query;
     const allDogs = await getAllDogs();
 
-    if (name) {
-        const dog = allDogs.filter(d => d.name.toLowerCase().includes(name.toLowerCase()));
-        dog.length ?
-        res.status(200).json(dog) :
-        res.status(404).json('dog not found');
-    } else {
-        res.status(200).json(allDogs);
+    try {
+        if (name) {
+            const dog = allDogs.filter(d => d.name.toLowerCase().includes(name.toLowerCase()));
+            dog.length ?
+                res.status(200).json(dog) :
+                res.status(404).send('breed not found');
+        } else {
+            res.status(200).json(allDogs);
+        }
+    } catch (error) {
+        console.log(error)
     }
+
+
 });
 
 dogs.get('/dogs/:idRaza', async (req, res) => {
     const { idRaza } = req.params;
     const allDogs = await getAllDogs();
-    if (idRaza) {
-        const dog = await allDogs.find(d => d.id.toString() === idRaza);    
-        dog ? res.status(200).json(dog) : res.status(404).send('dog not found');
+
+    try {
+        if (idRaza) {
+            let dog = await allDogs.find(d => d.id.toString() === idRaza);
+            dog ? res.status(200).json(dog) : res.status(404).send('dog not found');
+        }
+    } catch (error) {
+        console.log(error)
     }
+
 })
 
 
 dogs.post('/dogs', async (req, res) => {
+    let createDB;
     const {
         name,
         height_min,
@@ -42,26 +56,29 @@ dogs.post('/dogs', async (req, res) => {
         weight_max,
         life_span,
         temperaments,
-        createDB,
-        image
+        image        
     } = req.body;
+    
+    if (name && height_min && height_max && weight_min && weight_max && life_span && temperaments && image) {
+        const createDog = await Dog.create({
+            name: name,
+            height_min: parseInt(height_min),
+            height_max: parseInt(height_max),
+            weight_min: parseInt(weight_min),
+            weight_max: parseInt(weight_max),
+            life_span: life_span,
+            createDB,
+            image: image
+        });
 
-    const createDog = await Dog.create({
-        name: name,
-        height_min: parseInt(height_min),
-        height_max: parseInt(height_max),
-        weight_min: parseInt(weight_min),
-        weight_max: parseInt(weight_max),
-        life_span: life_span,
-        createDB: createDB,
-        image: image
-    });
-
-    const findTemp = await Temperament.findAll({
-        where: {name: temperaments}
-    });
-    createDog.addTemperament(findTemp);
-    res.status(200).send('successful dog creation');
+        const findTemp = await Temperament.findAll({
+            where: { name: temperaments }
+        });
+        createDog.addTemperament(findTemp);
+        res.status(200).send('successful dog creation');
+    } else {
+        res.status(404).send('data is required');
+    }
 })
 
 

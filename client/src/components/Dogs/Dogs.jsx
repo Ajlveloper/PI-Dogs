@@ -12,7 +12,7 @@ import {
     getOrderWeight,
     getBreedSearch
 } from '../../redux/actions';
-import SearchBreed from '../../SearchBreed/SearchBreed';
+import SearchBreed from '../SearchBreed/SearchBreed';
 import Dog from '../Dog/Dog';
 import FilterBreed from '../FilterBreed/FilterBreed';
 import FilterCreate from '../FilterCreate/FilterCreate';
@@ -55,20 +55,27 @@ const Dogs = () => {
     /* Efectos Secundarios____________ */
     useEffect(() => {
         setLoading(true)
-        dispatch(getDogs());
+        const dogs = async () => {
+            await dispatch(getDogs());
+        }
+        dogs()
     }, [dispatch]);
-    // console.log(dogsAll)
 
     useEffect(() => {
         dispatch(getTemperaments());
     }, [dispatch]);
 
+    console.log(dogsAll)
 
     /* Handlers________________ */
 
     const handleChangeTemp = ({ target }) => {
         // setinputTemp(target.value)
-        dispatch(getTemperamentFilter(target.value));
+        setLoading(true)
+        const dog = async () => {
+            await dispatch(getTemperamentFilter(target.value));
+        }
+        dog()
     }
 
     const handleChangeBreed = ({ target }) => {
@@ -84,7 +91,6 @@ const Dogs = () => {
         setdogsCurrent(1)
         setOrder(`${order} Ordenado ${target.value}`)
 
-        console.log(target.value);
     }
 
     const handleWeight = ({ target }) => {
@@ -99,7 +105,11 @@ const Dogs = () => {
 
     const handleSearchBreed = (e) => {
         e.preventDefault();
-        dispatch(getBreedSearch(search));
+        setLoading(true)
+        const dog = async () => {
+            await dispatch(getBreedSearch(search));
+        }
+        dog();
         setSearch('')
     }
 
@@ -111,8 +121,7 @@ const Dogs = () => {
         return (
             <Loading />
         )
-    }
-    else {
+    } else {
         return (
             /* modularizar todo lo necesario y hacer la lógica y pasarlo por props a los componentes ideales */
             <>
@@ -181,18 +190,21 @@ const Dogs = () => {
                 {/* Renderizacion____________________ */}
                 <ul>
                     {
-                        dogsRender.map(d => (
-                            <div key={d.id}>
+                        dogsRender.length ? dogsRender.map(d => (
+                            <li key={d.id}>
                                 <Dog
                                     img={d.image}
                                     name={d.name}
-                                    temperament={d.temperaments[0].name || d.temperaments}
+                                    temperament={Array.isArray(d.temperaments) ? d.temperaments.map(t => t.name).join(', ') : d.temperaments}
                                     weight_min={d.weight_min}
                                     weight_max={d.weight_max}
                                     id={d.id}
                                 />
+                            </li>
+                        )) :
+                            <div>
+                                <p>Not found</p>
                             </div>
-                        ))
                     }
                 </ul>
 

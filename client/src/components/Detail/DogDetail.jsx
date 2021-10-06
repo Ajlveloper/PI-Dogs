@@ -21,16 +21,20 @@ const DogDetail = () => {
         life_span
     } = dog
 
+
     useEffect(() => {
         setLoading(true)
-        dispatch(getDetail(idDog));
+        const detail = async () => {
+            await dispatch(getDetail(idDog));
+        }
+        detail()        
     }, [dispatch, idDog])
 
     if (loading) {
         console.log('Loading entro')
         setTimeout(() => {
             setLoading(false)
-        }, 1000);
+        }, 2000);
         return (
             <Loading />
         )
@@ -45,7 +49,7 @@ const DogDetail = () => {
                          alt={name}
                      />
                      <p>{name}</p>
-                     <p>Temperamentos: {temperaments}</p>
+                     <p>Temperamentos: {Array.isArray(dog.temperaments) ? dog.temperaments.map(t => t.name).join(', ') : temperaments}</p>
                      <p>Altura min: {height_min}</p>
                      <p>Altura max: {height_max}</p>
                      <p>Peso min: {weight_min}</p>

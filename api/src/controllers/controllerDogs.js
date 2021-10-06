@@ -21,6 +21,7 @@ const getDogsApi = async () => {
         })
         dogs = dogs.filter(d => d.temperaments !== undefined)
         dogs = dogs.filter(d => d.weight_min && d.weight_max).filter(d => d.height_min && d.height_max)
+        
         return dogs;
     } catch (err) {
         console.log(err)

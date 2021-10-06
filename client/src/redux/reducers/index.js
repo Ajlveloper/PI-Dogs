@@ -27,7 +27,6 @@ const reduce = (state = initialState, action) => {
                 dogs: action.payload,
                 dogsSecond: action.payload,
                 breedDogs: action.payload,
-                loading: action.loading
             };
         case GET_TEMPERAMENTS:
             return {
@@ -75,13 +74,10 @@ const reduce = (state = initialState, action) => {
                 ...state, dogs: orderWeight
             }
         case SEARCH_BREED:
-            let breed = state.dogsSecond;
-            let searchBreed = breed.filter(b => b.name.toLowerCase().includes(action.breed.toLowerCase()));
             return {
-                ...state, dogs: searchBreed
+                ...state, dogs: action.breed
             }
         case GET_DETAIL:
-            // console.log(action.payload)
             return {
                 ...state, dogDetail: action.payload
             }
