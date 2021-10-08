@@ -1,0 +1,96 @@
+.back_landing {
+    /* position  : relative; */
+    object-fit: contain;
+    box-shadow: inset 0 0 0 1000px #eeebdd72;
+}
+
+
+.landing_general {
+    width          : 100vw;
+    height         : 100vh;
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+    align-items    : center;
+    border         : 2px solid #1B1717;
+    color: #1B1717;
+}
+
+video {
+    background-color: #d4e6f4;
+    position        : absolute;
+    object-fit      : cover;
+    width           : 100%;
+    height          : 100%;
+    top             : 0;
+    right           : 0;
+    left            : 0;
+    bottom          : 0;
+    z-index         : -1;
+}
+
+.h1_landing {
+    text-align: center;
+    font-size : 30px;
+}
+
+.h1_after::after {
+    display         : block;
+    content         : "";
+    margin          : auto;
+    width           : 400px;
+    height          : 5px;
+    background-color: #1B1717;
+}
+
+.link_Landing {
+    display          : block;
+    width            : 132px;
+    -webkit-animation: showEnter 0.8s 1.5s;
+    animation        : showEnter 0.8s 0.1s;
+    overflow         : hidden;
+}
+
+@keyframes showEnter {
+    0% {
+        letter-spacing   : 1em;
+        -webkit-transform: translateZ(400px);
+        transform        : translateZ(400px);
+        opacity          : 0;
+    }
+
+    40% {
+        opacity: 0.6;
+    }
+
+    100% {
+        -webkit-transform: translateZ(0);
+        transform        : translateZ(0);
+        opacity          : 1;
+    }
+}
+
+.h2_landing {
+    display  : block;
+    font-size: 30px;
+    color    : #1B1717;
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 10px;
+    transition: all 0.5s;
+}
+
+
+
+.h2_landing:hover {
+    background-color: #d4e6f4;
+    background-image: url('../../assets/img/pawprint.png');
+    background-clip: inherit;
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+.h2_landing:focus {
+    background-color: #1B1717;
+}

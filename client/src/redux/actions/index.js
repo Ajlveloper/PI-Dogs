@@ -12,12 +12,17 @@ export const GET_CREATE = 'GET_CREATE';
 
 
 export const getDogs = () => {
-    return async function (dispatch) {
-        const dogs = await axios.get('http://localhost:3001/dogs')
-        return dispatch({
-            type: GET_DOGS,
-            payload: dogs.data,
-        })
+    return async (dispatch) => {
+        try {
+            const dogs = await axios.get('http://localhost:3001/dogs')
+            return dispatch({
+                type: GET_DOGS,
+                payload: dogs.data,
+            })
+            
+        } catch (error) {
+            console.log(error)
+        }
     }
 }
 

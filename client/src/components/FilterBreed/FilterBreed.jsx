@@ -1,13 +1,13 @@
 import React from 'react'
 
-function FilterBreed({ handleChangeBreed, dogsAll }) {
+function FilterBreed({ handleChangeBreed, dogsSeconds }) {
     return (
         <>
             <label>Filter by Breed: </label>
             <select onChange={handleChangeBreed}>
-                <option value='allDogs'>All the races</option>
+                <option>filter by race</option>
                 {
-                    dogsAll.map(d => (
+                    dogsSeconds.map(d => (
                         <option
                             value={d.name}
                             key={d.id}

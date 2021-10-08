@@ -69,7 +69,7 @@ const reduce = (state = initialState, action) => {
             }
         case ORDER_ORDER_WEIGHT:
             let orderWeight = action.weight === 'min' ?
-                state.dogs.sort((a, b) => a.weight_min - b.weight_min) : state.dogs.sort((a, b) => a.weight_max - b.weight_max)
+                state.dogs.sort((a, b) => a.weight_min - b.weight_min) : state.dogs.sort((a, b) => b.weight_max - a.weight_max)
             return {
                 ...state, dogs: orderWeight
             }

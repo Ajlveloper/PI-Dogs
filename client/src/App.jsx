@@ -1,14 +1,14 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import LandingPage from './components/LandingPage/LandingPage';
-import Home from './components/Home/Home'
 import './App.css';
 import DogCreate from './components/DogCreate/DogCreate';
 import DogDetail from './components/Detail/DogDetail';
+import Home from './components/Home/Home';
 
 function App() {
   return (
-    <div>
+    <div className='app'>
       <Route
         exact
         path='/'

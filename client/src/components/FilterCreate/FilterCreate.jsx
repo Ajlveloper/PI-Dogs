@@ -5,6 +5,7 @@ const FilterCreate = ({ handlerFilterCreate }) => {
         <>
             <label>Filter by created or existing</label>
             <select onChange={handlerFilterCreate}>
+                <option>created or existing</option>
                 <option value='creados'>Created</option>
                 <option value='existentes'>Existing</option>
             </select>
