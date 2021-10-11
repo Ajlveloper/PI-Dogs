@@ -8,6 +8,7 @@ const FilterTemperament = ({ handleChangeTemp, temperaments }) => {
             <div className='select'>
                 <select onChange={handleChangeTemp}>
                     <option value='alltemperaments'>Filter only by temperament</option>
+                    <option value='alltemperaments'>All Temperaments</option>
                     {
                         temperaments.length && temperaments?.map(t => (
                             <option

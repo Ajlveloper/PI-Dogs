@@ -73,7 +73,7 @@ const Home = () => {
     /* Handlers________________ */
 
     const handleChangeTemp = ({ target }) => {
-        // setLoading(true)
+        setLoading(true)
         console.log(target.value);
         const dog = async () => {
             await dispatch(getTemperamentFilter(target.value));
@@ -108,9 +108,9 @@ const Home = () => {
 
     const handleSearchBreed = (e) => {
         e.preventDefault();
-        setLoading(true)
         const dog = async () => {
             if (search) {
+                setLoading(true)
                 await dispatch(getBreedSearch(search));
             } else alert('Se requieren datos')
         }
