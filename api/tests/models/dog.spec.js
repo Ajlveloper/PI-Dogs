@@ -1,7 +1,7 @@
 const { Dog, Temperament } = require("../../src/db")
 const { expect } = require('chai');
 
-describe.only('Model Testing', () => {
+describe('Model Testing', () => {
  
   describe('Dog model',  () => {
     beforeEach(async () => {

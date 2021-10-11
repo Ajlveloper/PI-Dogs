@@ -28,16 +28,16 @@ describe('/dogs',() => {
       });
   }).timeout(10000)
 })
-describe('/dogs?name=query', () => {
+describe('/dogsQ?name=query', () => {
   it('GET responde con status 200 si hay coincidencia por el nombre que se pasa por query', () => {
     return agent 
-      .get('/dogs?name=Afghan Hound') 
+      .get('/dogsQ?name=Afghan Hound') 
       .expect((res) => {
         expect(res.status).equal(200)}); 
       }).timeout(10000)
   it('Si coincide el nombre correctamente que se pasa por query el length del array no estaría vacío',  () => {
     return agent 
-      .get('/dogs?name=Alaskan Husky') 
+      .get('/dogsQ?name=Alaskan Husky') 
       .expect((res) => {
         expect(res.body.length).equal(1); 
       });
