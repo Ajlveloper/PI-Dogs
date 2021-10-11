@@ -1,14 +1,19 @@
 import React from 'react'
+import './Loading.css'
+const Loading = () => {
 
- const Loading = () => {
-     
-        return (
-            <div>
-                Loading...
+    return (
+        <div className='loader-content'>
+            <div className='lds-ring'>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
             </div>
-        )
-     
-    
+        </div>
+    )
+
+
 }
 
 export default Loading;

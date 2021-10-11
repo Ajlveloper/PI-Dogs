@@ -8,7 +8,7 @@ const Paginado = ({ dogsAll, paged, dogsPage }) => {
         getNum.push(i);        
     }
     return (
-        <div>
+        <footer className='footer'>
             <nav>
                 <ul className="flexPaged ul">
                     {
@@ -20,7 +20,7 @@ const Paginado = ({ dogsAll, paged, dogsPage }) => {
                     }
                 </ul>
             </nav>
-        </div>
+        </footer>
     )
 }
 

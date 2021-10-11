@@ -1,13 +1,15 @@
 import React from 'react'
 
- const OrderWeight = ({ handleWeight }) => {
+const OrderWeight = ({ handleWeight }) => {
     return (
         <>
-            <select onChange={handleWeight}>
-                <option>Peso</option>
-                <option value="min">Min</option>
-                <option value="max">Max</option>
-            </select>
+            <div className='Order_SideBar'>
+                <select onChange={handleWeight}>
+                    <option>Weight</option>
+                    <option value="min">Min</option>
+                    <option value="max">Max</option>
+                </select>
+            </div>
         </>
     )
 }

@@ -2,18 +2,20 @@ import React from 'react'
 
 const SearchBreed = ({ handleSearchBreed, handleSearch, search }) => {
     // const [search, setSearch] = useState('');
-    
+
     return (
         <>
             <form onSubmit={handleSearchBreed}>
-                <label>Busqueda por raza</label>
-                <input
-                    type="text"
-                    placeholder='Busqueda de Raza'
-                    value={search}
-                    onChange={handleSearch}
-                />
-                <button type='submit'>Buscar</button>
+                <label className='FontWeight'>Search by race:</label>
+                <div className='text_box'>
+                    <input
+                        type="text"
+                        placeholder='Race search'
+                        value={search}
+                        onChange={handleSearch}
+                    />
+                </div>
+                <button className='button_search' type='submit'>Search for</button>
             </form>
         </>
     )

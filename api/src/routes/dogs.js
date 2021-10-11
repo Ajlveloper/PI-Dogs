@@ -6,22 +6,34 @@ const {
     getAllDogs
 } = require('../controllers/controllerDogs.js');
 
-const { Dog, Temperament } = require('../db.js')
+const { Dog, Temperament } = require('../db.js');
+const { get } = require('./temperament.js');
 
 dogs.use(express.json());
 
 dogs.get('/dogs', async (req, res) => {
+    // const { name } = req.query;
+    const allDogs = await getAllDogs();
+
+    try {
+        res.status(200).json(allDogs);
+    } catch (error) {
+        console.log(error)
+    }
+
+
+});
+
+dogs.get('/dogsQ', async (req, res) => {
     const { name } = req.query;
     const allDogs = await getAllDogs();
 
     try {
         if (name) {
             const dog = allDogs.filter(d => d.name.toLowerCase().includes(name.toLowerCase()));
-            dog.length ?
-                res.status(200).json(dog) :
-                res.status(404).send('breed not found');
+            res.status(200).json(dog)
         } else {
-            res.status(200).json(allDogs);
+            res.status(404).redirect('/error');
         }
     } catch (error) {
         console.log(error)
@@ -45,6 +57,10 @@ dogs.get('/dogs/:idRaza', async (req, res) => {
 
 })
 
+dogs.get('error', (req, res) => {
+    res.send('Not results')
+})
+
 
 dogs.post('/dogs', async (req, res) => {
     let createDB;
@@ -56,9 +72,9 @@ dogs.post('/dogs', async (req, res) => {
         weight_max,
         life_span,
         temperaments,
-        image        
+        image
     } = req.body;
-    
+
     if (name && height_min && height_max && weight_min && weight_max && life_span && temperaments && image) {
         const createDog = await Dog.create({
             name: name,

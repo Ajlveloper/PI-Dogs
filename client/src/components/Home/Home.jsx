@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
 import {
     getDogs,
     getTemperaments,
@@ -12,15 +11,14 @@ import {
     getOrderWeight,
     getBreedSearch
 } from '../../redux/actions';
-import SearchBreed from '../SearchBreed/SearchBreed';
 import Dog from '../Dog/Dog';
-import FilterBreed from '../FilterBreed/FilterBreed';
-import FilterCreate from '../FilterCreate/FilterCreate';
-import FilterTemperament from '../FilterTemperament/FilterTemperament';
 import Loading from '../Loading/Loading';
-import Order from '../Order/Order';
-import OrderWeight from '../OrderWeight/OrderWeight';
 import Paginado from '../Paginado/Paginado';
+import NotResults from '../NotResults/NotResults';
+import Navbar from '../Navbar/Navbar';
+import Menu from '../../assets/img/svg.jsx'
+import SideBar from '../SideBar/SideBar';
+import './Home.css'
 
 
 const Home = () => {
@@ -31,6 +29,7 @@ const Home = () => {
     const [order, setOrder] = useState('')
     const [loading, setLoading] = useState(false);
     const [search, setSearch] = useState('');
+    const [showNav, setShowNav] = useState(false)
 
     /* Estados Redux_______________*/
     const dogsAll = useSelector(state => state.dogs);
@@ -66,7 +65,6 @@ const Home = () => {
         dispatch(getTemperaments());
     }, [dispatch]);
 
-    console.log(dogsAll)
 
     /* Handlers________________ */
 
@@ -78,53 +76,58 @@ const Home = () => {
         }
         dog()
     }
-    
+
     const handleChangeBreed = ({ target }) => {
         dispatch(getBreedFilter(target.value))
     }
-    
+
     const handlerFilterCreate = ({ target }) => {
         dispatch(getFilterCreated(target.value))
     }
-    
+
     const handleAscendent = ({ target }) => {
         dispatch(getOrder(target.value))
         setdogsCurrent(1)
         setOrder(`${order} Ordenado ${target.value}`)
-        
+
     }
-    
+
     const handleWeight = ({ target }) => {
         dispatch(getOrderWeight(target.value));
         setdogsCurrent(1);
         setOrder(`${order} Ordernado por peso ${target.value}`);
     }
-    
+
     const handleSearch = ({ target }) => {
         setSearch(target.value);
     }
-    
+
     const handleSearchBreed = (e) => {
         e.preventDefault();
         setLoading(true)
         const dog = async () => {
-            await dispatch(getBreedSearch(search));
+            if (search) {
+                await dispatch(getBreedSearch(search));
+            } else alert('Se requieren datos')
         }
         dog();
         setSearch('')
     }
-    
-    const handkerShowAllRaces  = (t) => {
+
+    const handkerShowAllRaces = (t) => {
         setLoading(true)
         dispatch(getDogs())
-        console.log('hola')
     }
-    
+
+
+    const handleShowNav = () => setShowNav(!showNav);
+    console.log(showNav)
+
     /* Loading______________________________ */
     if (loading) {
         setTimeout(() => {
             setLoading(false)
-        }, 4000);
+        }, 3000);
         return (
             <Loading />
         )
@@ -133,97 +136,65 @@ const Home = () => {
             /* modularizar todo lo necesario y hacer la lógica y pasarlo por props a los componentes ideales */
             <>
                 {/* <Loading loading={loading} /> */}
+                <Navbar />
 
-                <h1>Titulo del Sitio</h1>
-                <NavLink to='/createDog'>
-                    <p>Crear Perro</p>
-                </NavLink>
+                <main className='Flex_home'>
+                    <div className='Flex_basis_sideBar Flex_basis '>
 
+                        <button onClick={handleShowNav}>
+                            <Menu />
+                        </button>
 
-                <div>
-
-                    <div>
-
-                        <SearchBreed
-                            handleSearchBreed={handleSearchBreed}
-                            handleSearch={handleSearch}
-                            search={search}
-                        />
-                    </div>
-
-                    {/* Filtrados_____________________ */}
-
-                    <button onClick={handkerShowAllRaces} /* onclick={handleChangeBreed} */>
-                        show all races
-                    </button>
-
-                    <div>
-                        <FilterTemperament
-                            handleChangeTemp={handleChangeTemp}
-                            temperaments={temperaments}
-                        />
-                    </div>
-
-                    <div>
-                        <FilterBreed
-                            dogsSeconds={dogsSeconds}
-                            handleChangeBreed={handleChangeBreed}
-                        />
-                    </div>
-
-                    <div>
-                        <FilterCreate
-                            handlerFilterCreate={handlerFilterCreate}
-                        />
-                    </div>
-
-
-                    {/* Ordenamientos_____________________ */}
-
-                    <div>
-                        <label>Ordenamiento</label>
                         <div>
-                            <Order
+                            <SideBar
+                                handleSearchBreed={handleSearchBreed}
+                                handleSearch={handleSearch}
+                                search={search}
+                                handleChangeTemp={handleChangeTemp}
+                                temperaments={temperaments}
+                                dogsSeconds={dogsSeconds}
+                                handleChangeBreed={handleChangeBreed}
+                                handlerFilterCreate={handlerFilterCreate}
                                 handleAscendent={handleAscendent}
+                                handleWeight={handleWeight}
+                                handkerShowAllRaces={handkerShowAllRaces}
+                                showNav={showNav}
+                                handleShowNav={handleShowNav}
                             />
                         </div>
 
-                        <div>
-                            <OrderWeight
-                                handleWeight={handleWeight}
-                            />
-                        </div>
+
+
 
 
                     </div>
-                </div>
 
-                {/* Renderizacion____________________ */}
-                <div>
-                    {
-                        dogsRender.length ? dogsRender.map(d => (
-                            <div key={d.id}>
-                                <Dog
-                                    img={d.image}
-                                    name={d.name}
-                                    temperament={Array.isArray(d.temperaments) ? d.temperaments.map(t => t.name).join(', ') : d.temperaments}
-                                    weight_min={d.weight_min}
-                                    weight_max={d.weight_max}
-                                    id={d.id}
-                                />
-                            </div>
-                        )) :
-                        setTimeout(() => {
-                            <div>
-                                <p>Not found</p>
-                            </div>
-                        }, 4000)
-                            
-                    }
-                </div>
+                    {/* Renderizacion____________________ */}
+                    <div className='Flex_Dogs'>
+                        {
+                            dogsRender.length ? dogsRender.map(d => (
+                                <div className='Flex_Dog' key={d.id}>
+                                    <Dog
+                                        img={d.image}
+                                        name={d.name}
+                                        temperament={Array.isArray(d.temperaments) ? d.temperaments.map(t => t.name).join(', ') : d.temperaments}
+                                        weight_min={d.weight_min}
+                                        weight_max={d.weight_max}
+                                        id={d.id}
+                                    />
+                                </div>
+                            )) :
+                                setTimeout(() => {
+                                    <div>
+                                        <NotResults />
+                                    </div>
+                                }, 4000)
+
+                        }
+                    </div>
+                </main>
 
                 {/* Paginacion____________________ */}
-
                 <Paginado
                     dogsAll={dogsAll.length}
                     paged={paged}

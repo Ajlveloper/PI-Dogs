@@ -1,3 +1,9 @@
+footer {
+    height          : 100px;
+    background-color: #1b1717;
+    padding         : 30px;
+}
+
 .ul {
     width: 100%;
 }
@@ -9,19 +15,24 @@
 }
 
 .flexPaged li {
-    margin-right    : 12px;
-    transition      : all 500ms;
-    color           : black;
-    /* padding         : 7px; */
-    background-color: #333333;
-    border-radius   : 7px;
+    margin-right : 14px;
 }
+
 
 .flexPaged button {
-    padding: 7px;
-    cursor          : pointer;
+    font-size    : 17px;
+    font-weight  : 700;
+    width        : 35px;
+    height       : 35px;
+    padding      : 7px;
+    cursor       : pointer;
+    border-radius: 0;
+    background   : none;
+    color        : #d4e6f4;
+    border-bottom: solid 1px transparent;
+    transition   : all 0.5s ease;
 }
 
-.flexPaged li:hover {
-    background-color: #ccc;
+.flexPaged button:hover {
+    border-bottom: solid 1px #d4e6f4;
 }

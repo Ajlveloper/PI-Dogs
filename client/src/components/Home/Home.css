@@ -1,0 +1,64 @@
+/* .Flex_home {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-grow: 1;
+    justify-content: space-around;
+    background-color: #d4e6f4;
+    padding-top: 10px;
+}
+
+.Flex_SideBar {
+    flex-basis: 38%;
+}
+
+.Flex_home .Flex_Dogs img {
+    width: 290px;
+    height: 200px;
+}
+
+.Flex_home .Flex_Dogs  {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.Flex_home .Flex_Dog  { 
+    border: 1px solid #1B1717;
+    margin: 4px;
+    width: 46%;
+} */
+
+img {
+    max-width: 100%;
+}
+
+.Flex_home {
+    display         : flex;
+    background-color: #d4e6f4;
+    min-height      : 100vh;
+}
+
+.Flex_basis_sideBar {
+    flex-basis: 20%;
+    min-height: 100%;
+}
+
+.Flex_home svg {
+    width      : 35px;
+    line-height: 10px;
+    cursor     : pointer;
+    margin     : 12px;
+    color      : #1b1717;
+    transition: all 0.5s ease;
+    padding: 5px;
+}
+
+.Flex_home svg:hover {
+    background-color: #1b1717;
+    color: #d4e6f4;
+}
+
+.Flex_basis_sideBar div {
+    min-height: 15%;
+}

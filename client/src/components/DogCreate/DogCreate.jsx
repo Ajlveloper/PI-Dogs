@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { validate } from '../../controllers/Validate';
 import { getTemperaments, getCreate } from '../../redux/actions';
+import { Huella } from '../../assets/img/svg.jsx'
+import './DogCreate.css'
+import Navbar from '../Navbar/Navbar';
 
 
 
@@ -76,7 +79,11 @@ const DogCreate = () => {
             ...input,
             [e.target.name]: e.target.value
         }))
-        dispatch(getCreate(input))
+        if (input.name && input.height_min && input.height_max && input.weight_min && input.weight_max && input.life_span && input.temperaments.length && input.image) {
+            dispatch(getCreate(input))
+        } else {
+            alert('Se requieren todos los datos completados');
+        }
         setInput({
             name: '',
             height_min: '',
@@ -90,152 +97,181 @@ const DogCreate = () => {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-
+        <div className='Form_general'>
+            <Navbar />
+            <div className='Flex_dog_create_form'>
                 <div>
-                    <label htmlFor='Nombre'>Nombre</label>
-                    <input
-                        type="text"
-                        placeholder='Nombre'
-                        name='name'
-                        value={input.name}
-                        onChange={handleInput}
-                        onKeyUp={handleInput}
-                        onBlur={handleInput}
-                    />
-                    {errors.name && (<p>{errors.name}</p>)}
-                </div>
+                    <form onSubmit={handleSubmit}>
 
+                        <Huella />
 
-                <div>
-                    <label>Altura mínima</label>
-                    <input
-                        type="text"
-                        placeholder='Altura mínima'
-                        name='height_min'
-                        value={input.height_min}
-                        onChange={handleInput}
-                        onKeyUp={handleInput}
-                        onBlur={handleInput}
-                        maxLength='2'
-                    />
-                    {errors.height_min && (<p>{errors.height_min}</p>)}
-                </div>
-
-                <div>
-                    <label>Altura Máxima</label>
-                    <input
-                        type="text"
-                        placeholder='Altura máxima'
-                        name='height_max'
-                        value={input.height_max}
-                        onChange={handleInput}
-                        onKeyUp={handleInput}
-                        onBlur={handleInput}
-                        maxLength='2'
-                    />
-                    {errors.height_max && (<p>{errors.height_max}</p>)}
-                </div>
-
-
-                <div>
-                    <label>Peso mínimo</label>
-                    <input type="text"
-                        placeholder='Peso mínimo'
-                        name='weight_min'
-                        value={input.weight_min}
-                        onChange={handleInput}
-                        onKeyUp={handleInput}
-                        onBlur={handleInput}
-                        maxLength='2'
-                    />
-                    {errors.weight_min && (<p>{errors.weight_min}</p>)}
-                </div>
-
-                <div>
-                    <label>Peso máximo</label>
-                    <input
-                        type="text"
-                        placeholder='Peso máximo'
-                        name='weight_max'
-                        value={input.weight_max}
-                        onChange={handleInput}
-                        onKeyUp={handleInput}
-                        onBlur={handleInput}
-                        maxLength='2'
-                    />
-                    {errors.weight_max && (<p>{errors.weight_max}</p>)}
-                </div>
-
-                <div>
-                    <label>Años de Vida</label>
-                    <input
-                        type="text"
-                        placeholder='Años de vida'
-                        name='life_span'
-                        value={input.life_span}
-                        onChange={handleInput}
-                        onKeyUp={handleInput}
-                        onBlur={handleInput}
-                    />
-                    {errors.life_span && (<p>{errors.life_span}</p>)}
-                </div>
-                
-                <div>
-                    <label>Imagen</label>
-                    <input
-                        type="text"
-                        placeholder="URL de la Imagen"
-                        name="image"
-                        value={input.image}
-                        onChange={handleInput}
-                        onKeyUp={handleInput}
-                        onBlur={handleInput}
-                    />
-                    {errors.image && (<p>{errors.image}</p>)}
-                </div>
-
-
-
-
-                <div>
-                    <select onChange={handlerTemperament}>
-                        {
-                            temepraments.map(t => (
-                                <option
-                                    value={t.name}
-                                    key={t.id}
-                                >
-                                    {t.name}
-                                </option>
-                            ))
-                        }
-                    </select>
-                </div>
-
-
-                <div>
-                    <button type='submit'>Crear Raza</button>
-                </div>
-            </form>
-
-            <ul>
-                {
-                    input.temperaments.map(t => (
-                        <div key={t}>
-                            <li>{t}</li>
-                            <button
-                                key={t}
-                                onClick={() => handlerDeleteTemperament(t)}
-                            >X
-                            </button>
+                        <div>
+                            <label htmlFor='Nombre'>Name:</label>
+                            <div className='Input_form'>
+                                <input
+                                    type="text"
+                                    placeholder='Name'
+                                    name='name'
+                                    value={input.name}
+                                    onChange={handleInput}
+                                    onKeyUp={handleInput}
+                                    onBlur={handleInput}
+                                />
+                            </div>
+                            {errors.name && (<p className='errors'>{errors.name}</p>)}
                         </div>
 
-                    )
-                    )
-                }
-            </ul>
+
+                        <div>
+                            <label>Minimun height:</label>
+                            <div className='Input_form'>
+                                <input
+                                    type="text"
+                                    placeholder='Minimun height'
+                                    name='height_min'
+                                    value={input.height_min}
+                                    onChange={handleInput}
+                                    onKeyUp={handleInput}
+                                    onBlur={handleInput}
+                                    maxLength='2'
+                                />
+                            </div>
+                            {errors.height_min && (<p className='errors'>{errors.height_min}</p>)}
+                        </div>
+
+                        <div>
+                            <label>Maximum height:</label>
+                            <div className='Input_form'>
+                                <input
+                                    type="text"
+                                    placeholder='Maximum height'
+                                    name='height_max'
+                                    value={input.height_max}
+                                    onChange={handleInput}
+                                    onKeyUp={handleInput}
+                                    onBlur={handleInput}
+                                    maxLength='2'
+                                />
+                            </div>
+                            {errors.height_max && (<p className='errors'>{errors.height_max}</p>)}
+                        </div>
+
+
+                        <div>
+                            <label>Minimum weight:</label>
+                            <div className='Input_form'>
+                                <input type="text"
+                                    placeholder='Minimum weight'
+                                    name='weight_min'
+                                    value={input.weight_min}
+                                    onChange={handleInput}
+                                    onKeyUp={handleInput}
+                                    onBlur={handleInput}
+                                    maxLength='2'
+                                />
+                            </div>
+                            {errors.weight_min && (<p className='errors'>{errors.weight_min}</p>)}
+                        </div>
+
+                        <div>
+                            <label>Maximum weight:</label>
+                            <div className='Input_form'>
+                                <input
+                                    type="text"
+                                    placeholder='Maximum weight'
+                                    name='weight_max'
+                                    value={input.weight_max}
+                                    onChange={handleInput}
+                                    onKeyUp={handleInput}
+                                    onBlur={handleInput}
+                                    maxLength='2'
+                                />
+                            </div>
+                            {errors.weight_max && (<p className='errors'>{errors.weight_max}</p>)}
+                        </div>
+
+                        <div>
+                            <label>Years of life:</label>
+                            <div className='Input_form'>
+                                <input
+                                    type="text"
+                                    placeholder='Years of life'
+                                    name='life_span'
+                                    value={input.life_span}
+                                    onChange={handleInput}
+                                    onKeyUp={handleInput}
+                                    onBlur={handleInput}
+                                />
+                            </div>
+                            {errors.life_span && (<p className='errors'>{errors.life_span}</p>)}
+                        </div>
+
+                        <div>
+                            <label>Image:</label>
+                            <div className='Input_form'>
+                                <input
+                                    type="text"
+                                    placeholder="Image URL"
+                                    name="image"
+                                    value={input.image}
+                                    onChange={handleInput}
+                                    onKeyUp={handleInput}
+                                    onBlur={handleInput}
+                                />
+                            </div>
+                            {errors.image && (<p className='errors'>{errors.image}</p>)}
+                        </div>
+
+
+
+
+                        <div>
+                            <label>Add temperaments:</label>
+                            <div className='select_form'>
+                                <select onChange={handlerTemperament}>
+                                    {
+                                        temepraments.map(t => (
+                                            <option
+                                                value={t.name}
+                                                key={t.id}
+                                            >
+                                                {t.name}
+                                            </option>
+                                        ))
+                                    }
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div className='Button_form'>
+                            <button type='submit'>Crear Raza</button>
+                        </div>
+                    </form>
+
+                </div>
+                <div className='Add_Temeperaments'>
+                    <ul>
+                        {
+                            input.temperaments.map(t => (
+                                <div className='Temperament_Form' key={t}>
+                                    <li>{t}</li>
+                                    <div className='Div_Button_temperament_delete'>
+                                        <button
+                                            className='Button_temperament_delete'
+                                            key={t}
+                                            onClick={() => handlerDeleteTemperament(t)}
+                                        >X
+                                        </button>
+                                    </div>
+                                </div>
+
+                            )
+                            )
+                        }
+                    </ul>
+                </div>
+            </div>
         </div>
     )
 }

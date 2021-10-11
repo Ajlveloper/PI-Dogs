@@ -1,3 +1,149 @@
-img {
-    width: 200px;
+.Flex_home .Flex_Dogs {
+    flex-basis     : 77%;
+    display        : flex;
+    flex-shrink    : 1;
+    flex-wrap      : wrap;
+    padding        : 10px;
+    justify-content: center;
+}
+
+.Flex_home .Flex_Dogs div {
+
+    border-radius: 10px;
+}
+
+.Flex_home .Flex_Dogs .Flex_Dog {
+    flex-basis      : 50%;
+    /* flex-grow    : 1; */
+    margin-bottom   : -4px;
+}
+
+.Flex_home .Flex_Dogs .Flex_img_text {
+    display                  : flex;
+    position                 : relative;
+    /* border                : solid 2px #1e2e3917; */
+    /* background-color      : #1B171761; */
+    background-color         : #73849138;
+    /* background-image      : url(../../assets/img/pawprint.png);
+    background-repeat        : no-repeat;
+    background-size          : 40px;
+    background-position      : 440px 193px; */
+    margin                   : 10px;
+    width                    : 94%;
+    /* margin-left           : 45px; */
+    padding                  : 10px;
+    /* height                : 235px; */
+    height                   : 160px;
+    overflow                 : hidden;
+}
+
+.huella_home {
+    display     : block;
+    width       : 200px;
+    position    : absolute;
+    /* top      : 48%;
+    left        : 75%; */
+    top         : 39%;
+    left        : 73%;
+    transform   : rotate(-0.1turn) scale(1.5, 1.5);
+    opacity     : 0.1;
+}
+
+
+.Flex_home .Flex_Dogs .Flex_img_text .img_text_basis {
+    position       : relative;
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    object-fit     : contain;
+    top            : -1px;
+    left           : -22px;
+    flex-basis     : 43%;
+}
+
+.Flex_home .Flex_Dogs .Flex_img_text .img_text_basis img {
+    object-fit                : cover;
+    width                     : 87%;
+    height                    : 114%;
+    border-radius             : 10px;
+    border-top-right-radius   : 0px;
+    border-bottom-right-radius: 0px;
+}
+
+/* .img_text_basis {
+    flex-basis: calc(52.3% - 16px);
+} */
+
+.Flex_home .Flex_Dogs .Flex_img_text .img_text_basis .bg_image_dog {
+    position                  : absolute;
+    /* background-color       : linear-gradient(hsla(198, 44%, 11%, 0.5), hsla(195, 35%, 19%, 0.507), hsla(198, 39%, 28%, 0.5)); */
+    background-image          : linear-gradient(to right top, #d4e6f4, #a7aab88c, #79737c42, #4942456b, #1b1717);
+    object-fit                : cover;
+    height                    : 118%;
+    width                     : 87%;
+    top                       : -10px;
+    border-top-right-radius   : 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.Flex_home .Flex_Dogs .Flex_img_text .Home_text {
+    display        : flex;
+    flex-direction : column;
+    padding        : 2px;
+    text-decoration: none;
+    color          : #1B1717;
+    flex-basis     : 40%;
+
+}
+
+.Flex_home .Flex_Dogs .Flex_img_text .Home_text .h3_home {
+    margin-bottom            : -7px;
+    color                    : #1B1717;
+    background               : #1B171724;
+    padding                  : 6px;
+    position                 : relative;
+    bottom                   : 12px;
+    left                     : -37px;
+    border-top-left-radius   : 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius  : 6px;
+    width                    : 172%;
+    transition               : all 0.3s ease;
+}
+
+.Flex_home .Flex_Dogs .Flex_img_text .Home_text .h3_home:hover {
+    background-color: #1B1717;
+    color           : #d4e6f4;
+}
+
+
+
+
+
+.Flex_home .Flex_Dogs .Flex_img_text .Home_text h3 {
+    text-align: center;
+    font-size : 15px;
+}
+
+.Flex_home .Flex_Dogs .Flex_img_text .Home_text p {
+    line-height: 15px;
+    font-size  : 11px;
+    font-weight: 500;
+}
+
+.Flex_p_home {
+    display    : flex;
+    margin-left: 12px;
+}
+
+.Flex_p_home>div {
+    margin-right: 15px;
+}
+
+.Flex_home .Flex_Dogs .Flex_img_text .Home_text div {
+    margin-bottom: 1px;
+    font-size    : 14px;
+    position     : relative;
+    left         : -11px;
+    line-height  : 27px;
 }

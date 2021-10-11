@@ -4,6 +4,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getDetail } from '../../redux/actions';
 import { useParams } from 'react-router';
 import Loading from '../Loading/Loading';
+import Navbar from '../Navbar/Navbar';
+import './DogDetail.css'
+import { Huella } from '../../assets/img/svg';
 
 const DogDetail = () => {
     const [loading, setLoading] = useState(false);
@@ -27,37 +30,54 @@ const DogDetail = () => {
         const detail = async () => {
             await dispatch(getDetail(idDog));
         }
-        detail()        
+        detail()
     }, [dispatch, idDog])
 
     if (loading) {
         console.log('Loading entro')
         setTimeout(() => {
             setLoading(false)
-        }, 2000);
+        }, 1000);
         return (
             <Loading />
         )
     }
-     else {
-         return (
-             <>
-             <h2>Detalles de perro</h2>
-                 <div>
-                     <img
-                         src={image}
-                         alt={name}
-                     />
-                     <p>{name}</p>
-                     <p>Temperamentos: {Array.isArray(dog.temperaments) ? dog.temperaments.map(t => t.name).join(', ') : temperaments}</p>
-                     <p>Altura min: {height_min}</p>
-                     <p>Altura max: {height_max}</p>
-                     <p>Peso min: {weight_min}</p>
-                     <p>Peso max: {weight_max}</p>
-                     <p>Años de Vida: {life_span}</p>
-                 </div>
-             </>
-         )
+    else {
+        return (
+            <>
+                <Navbar />
+                <div className='DogDetail_general'>
+                    <div className='H2Detail'>
+                        <div className='bg_H2Detail'></div>
+                        <h2>Dog details:</h2>
+                    </div>
+                    <div className='DogDeatil'>
+                        <div className='DogDeatil_Div'>
+                            <div className='DogDeatil_img'>
+                                <img
+                                    src={image}
+                                    alt={name}
+                                />
+                                <div className='DogDeatil_bg'></div>
+                            </div>
+
+                            <p className='FontWeight p_detail_title'>{name}</p>
+                            <div>
+                                <div className='Huella_detail'>
+                                    <Huella  />
+                                </div>
+                                <p className='FontWeight'>Temperamentos:</p> <p>{Array.isArray(dog.temperaments) ? dog.temperaments.map(t => t.name).join(', ') : temperaments}</p>
+                                <p className='FontWeight'>Altura min:</p> <p>{height_min}</p>
+                                <p className='FontWeight'>Altura max:</p> <p>{height_max}</p>
+                                <p className='FontWeight'>Peso min:</p> <p>{weight_min}</p>
+                                <p className='FontWeight'>Peso max:</p> <p>{weight_max}</p>
+                                <p className='FontWeight'>Años de Vida:</p> <p>{life_span}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </>
+        )
     }
 
 }

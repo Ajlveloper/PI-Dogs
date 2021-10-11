@@ -52,15 +52,15 @@ const reduce = (state = initialState, action) => {
             }
         case ORDER_ASC_DES:
             let order = action.order === 'ascendent' ? state.dogs.sort((a, b) => {
-                if (a.name > b.name) {
+                if (a.name.toLowerCase() > b.name.toLowerCase()) {
                     return 1
-                } if (a.name < b.name) {
+                } if (a.name.toLowerCase() < b.name.toLowerCase()) {
                     return -1
                 } return 0
             }) : state.dogs.sort((a, b) => {
-                if (a.name > b.name) {
+                if (a.name.toLowerCase() > b.name.toLowerCase()) {
                     return -1
-                } if (a.name < b.name) {
+                } if (a.name.toLowerCase() < b.name.toLowerCase()) {
                     return 1
                 } return 0
             })

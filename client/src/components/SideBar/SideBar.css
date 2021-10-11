@@ -1,0 +1,150 @@
+.SideBar {
+    position: absolute;
+    top     : 0;
+    /* right   : 0; */
+    left    : -100%;
+    bottom  : 0;
+    transition: all 0.5s ease;
+}
+
+.SideBar.active {
+    left: 0;
+}
+
+.SideBar .Container_Lateral {
+    position  : absolute;
+    width     : 26.5vw;
+    height    : 125%;
+    top       : 0;
+    left      : 0;
+    transition: all 0.5s ease;
+}
+
+.SideBar .Container_Lateral .Lateral {
+    display         : flex;
+    flex-direction  : column;
+    justify-content : center;
+    align-items     : center;
+    width           : 100%;
+    max-width       : 250px;
+    height          : 100%;
+    background-color: #1b171791;
+    position        : relative;
+    transition      : all 0.5s ease;
+    padding         : 15px;
+    padding-top     : 61px;
+}
+
+.SideBar .Container_Lateral .Lateral div {
+    transform    : translateY(15%);
+    margin-bottom: -19px;
+}
+
+.SideBar .Container_Lateral .Lateral .button_search {
+    margin-left: 62px;
+    margin-top : 42px;
+    transition: all 0.3s ease;
+}
+
+.SideBar .Container_Lateral .Lateral .button_search:hover {
+    background-color: #1b1717;
+    color: #d4e6f4;
+}
+.SideBar .Container_Lateral .Lateral input {
+    margin-bottom: 10px;
+    margin-left  : 12px;
+    margin-top   : 10px;
+}
+
+
+
+.SideBar .Container_Lateral .Lateral .buttom_showAllRaces {
+    margin-top: 10px;
+    margin-bottom: 13px;
+    transition: all 0.3s ease;
+}
+
+.SideBar .Container_Lateral .Lateral .buttom_showAllRaces:hover {
+    background-color: #1b1717;
+    color: #d4e6f4;
+}
+
+.SideBar .Container_Lateral .Lateral .create_dog_link {
+    display      : block;
+    margin-bottom: 15px;
+    color      : #d4e6f4;
+    border: solid 1px #1b1717;
+    padding: 10px;
+    transition: all 0.5s ease;
+}
+
+.SideBar .Container_Lateral .Lateral .create_dog_link:hover {
+    background-color: #1b1717;
+
+}
+
+
+.SideBar .Container_Lateral .Lateral div select {
+    margin-top: 1px;
+    color     : #d4e6f4;
+}
+
+.SideBar .Container_Lateral .Lateral form label {
+    margin-left: 30px;
+}
+
+
+
+.SideBar .Container_Lateral .Lateral div select option {
+    color: #d4e6f4;
+}
+
+
+
+
+.SideBar .Container_Lateral .Lateral .Box_Order {
+    margin-left: -24px;
+}
+
+.SideBar .Container_Lateral .Lateral .Title_order {
+    width        : 100%;
+    display      : block;
+    margin-bottom: -8px;
+    margin-left  : 6px;
+    text-align   : center;
+}
+
+.Flex_order {
+    width          : 185px;
+    display        : flex;
+    justify-content: space-between;
+}
+
+.Flex_order div select {
+    padding: 7px;
+}
+
+.SideBar .Container_Lateral .Lateral .Label_X {
+    display   : block;
+    text-align: center;
+    position  : absolute;
+    right     : 12px;
+    top       : 68px;
+    color     : #d4e6f4;
+    font-size : 18px;
+    transition: all 0.4s ease;
+    width     : 30px;
+    cursor    : pointer;
+    border    : solid 1px #1b1717;
+    background: none;
+    border-radius: 0;
+}
+
+/* .SideBar .Container_Lateral .Lateral .Label_X button {
+    background: none;
+} */
+
+.SideBar .Container_Lateral .Lateral .Label_X:hover {
+    background-color: #1b1717;
+    border          : solid 1px #1b171791;
+}

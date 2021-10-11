@@ -54,6 +54,16 @@ export const getCreate = (payload) => {
     }
 }
 
+export const getBreedSearch = (breed) => {
+    return async function (dispatch) {
+        const dog = await axios.get(`http://localhost:3001/dogsQ?name=${breed}`)
+        return dispatch({
+            type: GET_DOGS,
+            payload: dog.data,
+        })
+    }
+}
+
 
 
 export const getTemperamentFilter = (temperament) => {
@@ -91,16 +101,3 @@ export const getOrderWeight = (weight) => {
     }
 }
 
-export const getBreedSearch = (breed) => {
-    return async function (dispatch) {
-        const dog = await axios.get(`http://localhost:3001/dogs?name=${breed}`)
-        return dispatch({
-            type: GET_DOGS,
-            payload: dog.data,
-        })
-    }
-    // return {
-    //     type: SEARCH_BREED,
-    //     breed
-    // }
-}
