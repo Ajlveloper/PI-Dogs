@@ -230,7 +230,7 @@ const DogCreate = () => {
                             <div className='select_form'>
                                 <select onChange={handlerTemperament}>
                                     {
-                                        temepraments.map(t => (
+                                        temepraments?.map(t => (
                                             <option
                                                 value={t.name}
                                                 key={t.id}
@@ -253,7 +253,7 @@ const DogCreate = () => {
                 <div className='Add_Temeperaments'>
                     <ul>
                         {
-                            input.temperaments.map(t => (
+                            input.temperaments?.map(t => (
                                 <div className='Temperament_Form' key={t}>
                                     <li>{t}</li>
                                     <div className='Div_Button_temperament_delete'>

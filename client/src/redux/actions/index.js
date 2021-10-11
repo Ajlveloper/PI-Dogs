@@ -19,48 +19,72 @@ export const getDogs = () => {
                 type: GET_DOGS,
                 payload: dogs.data,
             })
-            
+
         } catch (error) {
             console.log(error)
+            return [];
         }
     }
 }
 
 export const getTemperaments = () => {
     return async (dispatch) => {
-        const temp = await axios.get('http://localhost:3001/temperaments')
-        return dispatch({
-            type: GET_TEMPERAMENTS,
-            payload: temp.data
-        })
+        try {
+            const temp = await axios.get('http://localhost:3001/temperaments')
+            return dispatch({
+                type: GET_TEMPERAMENTS,
+                payload: temp.data
+            })
+        } catch (error) {
+            console.log(error)
+            return [];
+        }
     }
 }
 
 export const getDetail = (id) => {
     return async (dispatch) => {
-        let detailDog = await axios.get(`http://localhost:3001/dogs/${id}`);
-        return dispatch({
-            type: GET_DETAIL,
-            payload: detailDog.data
-        })
+        try {
+            let detailDog = await axios.get(`http://localhost:3001/dogs/${id}`);
+            return dispatch({
+                type: GET_DETAIL,
+                payload: detailDog.data
+            })
+        } catch (error) {
+            console.log(error)
+            return [];
+        }
+
     }
 }
 
 export const getCreate = (payload) => {
     return async () => {
-        let createDog = await axios.post('http://localhost:3001/dogs', payload)
-        console.log(createDog)
-        return createDog;
+        try {
+            let createDog = await axios.post('http://localhost:3001/dogs', payload)
+            console.log(createDog)
+            return createDog;
+        } catch (error) {
+            console.log(error)
+            return [];
+        }
+
     }
 }
 
 export const getBreedSearch = (breed) => {
-    return async function (dispatch) {
-        const dog = await axios.get(`http://localhost:3001/dogsQ?name=${breed}`)
-        return dispatch({
-            type: GET_DOGS,
-            payload: dog.data,
-        })
+    return async (dispatch) => {
+        try {
+            const dog = await axios.get(`http://localhost:3001/dogsQ?name=${breed}`)
+            return dispatch({
+                type: GET_DOGS,
+                payload: dog.data,
+            })
+        } catch (error) {
+            console.log(error)
+            return [];
+        }
+
     }
 }
 

@@ -62,19 +62,23 @@ const Home = () => {
     }, [dispatch]);
 
     useEffect(() => {
-        dispatch(getTemperaments());
+        setLoading(true)
+        const temp = async () => {
+            await dispatch(getTemperaments());
+        }
+        temp()
     }, [dispatch]);
 
 
     /* Handlers________________ */
 
     const handleChangeTemp = ({ target }) => {
-        // setinputTemp(target.value)
-        setLoading(true)
+        // setLoading(true)
+        console.log(target.value);
         const dog = async () => {
             await dispatch(getTemperamentFilter(target.value));
         }
-        dog()
+        dog();
     }
 
     const handleChangeBreed = ({ target }) => {
@@ -127,7 +131,7 @@ const Home = () => {
     if (loading) {
         setTimeout(() => {
             setLoading(false)
-        }, 3000);
+        }, 5000);
         return (
             <Loading />
         )
@@ -141,9 +145,11 @@ const Home = () => {
                 <main className='Flex_home'>
                     <div className='Flex_basis_sideBar Flex_basis '>
 
-                        <button onClick={handleShowNav}>
-                            <Menu />
-                        </button>
+                        <div className={showNav ? 'svg active' : 'svg'} >
+                            <button onClick={handleShowNav}>
+                                <Menu />
+                            </button>
+                        </div>
 
                         <div>
                             <SideBar
@@ -172,7 +178,7 @@ const Home = () => {
                     {/* Renderizacion____________________ */}
                     <div className='Flex_Dogs'>
                         {
-                            dogsRender.length ? dogsRender.map(d => (
+                            dogsRender.length !== 0 ? dogsRender.length && dogsRender?.map(d => (
                                 <div className='Flex_Dog' key={d.id}>
                                     <Dog
                                         img={d.image}
@@ -184,11 +190,12 @@ const Home = () => {
                                     />
                                 </div>
                             )) :
-                                setTimeout(() => {
-                                    <div>
-                                        <NotResults />
-                                    </div>
-                                }, 4000)
+                                // setTimeout(() => {
+                                <>
+                                    <NotResults />
+                                </>
+                            // }, 1000)
+
 
                         }
                     </div>

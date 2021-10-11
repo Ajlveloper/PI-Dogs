@@ -6,15 +6,11 @@ const Navbar = () => {
     return (
         <header className='Flex_navbar'>
             <div className='flex_logo'>
-                <Link to='/home'>
+                <Link to='/'>
                     <div>
 
                         <Huella className='img_nav'/>
-                        {/* <img
-                            className='img_nav'
-                            src={Huella}
-                            alt="SoBeDog"
-                        /> */}
+                        
                     </div>
                 </Link>
 

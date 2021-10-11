@@ -66,7 +66,7 @@ const DogDetail = () => {
                                 <div className='Huella_detail'>
                                     <Huella  />
                                 </div>
-                                <p className='FontWeight'>Temperamentos:</p> <p>{Array.isArray(dog.temperaments) ? dog.temperaments.map(t => t.name).join(', ') : temperaments}</p>
+                                <p className='FontWeight'>Temperamentos:</p> <p>{Array.isArray(dog.temperaments) ? dog.temperaments?.map(t => t.name).join(', ') : temperaments}</p>
                                 <p className='FontWeight'>Altura min:</p> <p>{height_min}</p>
                                 <p className='FontWeight'>Altura max:</p> <p>{height_max}</p>
                                 <p className='FontWeight'>Peso min:</p> <p>{weight_min}</p>

@@ -34,13 +34,13 @@ const reduce = (state = initialState, action) => {
             }
         case GET_TEMPERAMENT_FILTER:
             const allDogs = state.dogsSecond;
-            const filterDogs = action.temperament === 'allTemperaments' ? allDogs : allDogs.filter(d => d.temperaments.includes(action.temperament))
+            const filterDogs = action.temperament === 'alltemperaments' ? allDogs : allDogs.filter(d => d.temperaments.includes(action.temperament))
             return {
                 ...state, dogs: filterDogs
             }
         case GET_BREED_FILTER:
             const allBreed = state.breedDogs;
-            const filterBreed = action.breed === 'allDogs' ? allBreed : allBreed.filter(d => d.name.includes(action.breed))
+            const filterBreed = action.breed === 'allBreed' ? allBreed : allBreed.filter(d => d.name.includes(action.breed))
             return {
                 ...state, dogs: filterBreed
             }

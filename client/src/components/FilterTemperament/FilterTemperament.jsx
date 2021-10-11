@@ -7,9 +7,9 @@ const FilterTemperament = ({ handleChangeTemp, temperaments }) => {
             <label className='FontWeight'>Filter by temperament: </label>
             <div className='select'>
                 <select onChange={handleChangeTemp}>
-                    <option   value='allTemperaments'>All Temperaments</option>
+                    <option value='alltemperaments'>Filter only by temperament</option>
                     {
-                        temperaments.map(t => (
+                        temperaments.length && temperaments?.map(t => (
                             <option
                                 key={t.id}
                                 value={t.name}

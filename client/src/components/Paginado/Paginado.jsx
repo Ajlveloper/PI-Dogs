@@ -12,7 +12,7 @@ const Paginado = ({ dogsAll, paged, dogsPage }) => {
             <nav>
                 <ul className="flexPaged ul">
                     {
-                        getNum.map(n => (
+                        getNum?.map(n => (
                             <li key={n} >
                                 <button onClick={() => paged(n)}>{n}</button>
                             </li>

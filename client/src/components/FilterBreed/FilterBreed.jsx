@@ -6,9 +6,9 @@ function FilterBreed({ handleChangeBreed, dogsSeconds }) {
             <label className='FontWeight'>Filter by Breed: </label>
             <div className='select'>
                 <select onChange={handleChangeBreed}>
-                    <option >Filter by race</option>
+                    <option value='allBreed'>All race</option>
                     {
-                        dogsSeconds.map(d => (
+                     dogsSeconds.length && dogsSeconds?.map(d => (
                             <option
                                 value={d.name}
                                 key={d.id}

@@ -1,6 +1,33 @@
 .Flex_Results {
-    display: flex;
+    position       : relative;
+    width          : 100%;
+    display        : flex;
     justify-content: center;
-    align-items: center;
-    text-transform: uppercase;
+    align-items    : center;
+    text-transform : uppercase;
+}
+
+.Flex_Results .Text-results {
+    position: absolute;
+    top     : 30px;
+    left    : 238px;
+}
+
+.Flex_Results .Text-results h2 {
+    text-align: center;
+    font-size : 50px;
+}
+
+.Results_image {
+    position           : absolute;
+    top                : 117px;
+    right              : 43px;
+    left               : 119px;
+    bottom             : 0;
+    background-image   : url('../../assets/img/giphy.gif');
+    background-repeat  : no-repeat;
+    background-size    : 583px;
+    background-position: -16px 2px;
+    height             : 431px;
+    border-radius      : 4px;
 }

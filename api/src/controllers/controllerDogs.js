@@ -25,6 +25,7 @@ const getDogsApi = async () => {
         return dogs;
     } catch (err) {
         console.log(err)
+        return [];
     }
 }
 
@@ -41,6 +42,7 @@ const getDogsDb = async () => {
         })
     } catch (err) {
         console.log(err);
+        return [];
     }
 }
 
@@ -48,10 +50,11 @@ const getAllDogs = async () => {
     try {
         const dogApi = await getDogsApi();
         const dogDb = await getDogsDb();
-        const dogsAll = dogApi.concat(dogDb);
+        const dogsAll = await dogApi.concat(dogDb);
         return dogsAll;
     } catch (err) {
         console.log(err)
+        return [];
     }
 }
 

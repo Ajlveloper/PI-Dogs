@@ -8,7 +8,7 @@ const NotResults = () => {
                 <div className='Text-results'>
                     <h2>Not results</h2>
                 </div>
-                {/* <div className='Results_image'></div> */}
+                <div className='Results_image'></div>
             </div>
         </>
     )
