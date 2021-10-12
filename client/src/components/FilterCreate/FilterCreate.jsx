@@ -1,12 +1,21 @@
-import React from 'react'
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { getFilterCreated } from '../../redux/actions';
 
-const FilterCreate = ({ handlerFilterCreate }) => {
+
+const FilterCreate = ({ setdogsCurrent }) => {
+    const dispatch = useDispatch()
+
+    const handlerFilterCreate = ({ target }) => {
+        setdogsCurrent(1)
+        dispatch(getFilterCreated(target.value))
+    }
     return (
         <>
             <label className='FontWeight'>Filter by created or existing</label>
             <div className='select'>
                 <select onChange={handlerFilterCreate}>
-                    <option >Created or existing:</option>
+                    <option disabled>Created or existing:</option>
                     <option value='creados'>Created</option>
                     <option value='existentes'>Existing</option>
                 </select>

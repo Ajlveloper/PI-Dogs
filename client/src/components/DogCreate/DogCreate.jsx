@@ -127,7 +127,7 @@ const DogCreate = () => {
                             <div className='Input_form'>
                                 <input
                                     type="text"
-                                    placeholder='Minimun height'
+                                    placeholder='Minimun height in cm'
                                     name='height_min'
                                     value={input.height_min}
                                     onChange={handleInput}
@@ -144,7 +144,7 @@ const DogCreate = () => {
                             <div className='Input_form'>
                                 <input
                                     type="text"
-                                    placeholder='Maximum height'
+                                    placeholder='Maximum height in cm'
                                     name='height_max'
                                     value={input.height_max}
                                     onChange={handleInput}
@@ -161,7 +161,7 @@ const DogCreate = () => {
                             <label>Minimum weight:</label>
                             <div className='Input_form'>
                                 <input type="text"
-                                    placeholder='Minimum weight'
+                                    placeholder='Minimum weight in kg'
                                     name='weight_min'
                                     value={input.weight_min}
                                     onChange={handleInput}
@@ -178,7 +178,7 @@ const DogCreate = () => {
                             <div className='Input_form'>
                                 <input
                                     type="text"
-                                    placeholder='Maximum weight'
+                                    placeholder='Maximum weight in kg'
                                     name='weight_max'
                                     value={input.weight_max}
                                     onChange={handleInput}

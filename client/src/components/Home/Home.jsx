@@ -5,8 +5,6 @@ import {
     getDogs,
     getTemperaments,
     getTemperamentFilter,
-    getBreedFilter,
-    getFilterCreated,
     getOrder,
     getOrderWeight,
     getBreedSearch
@@ -33,8 +31,11 @@ const Home = () => {
 
     /* Estados Redux_______________*/
     const dogsAll = useSelector(state => state.dogs);
-    const temperaments = useSelector(state => state.temperamentAll);
+    
     const dogsSeconds = useSelector(state => state.dogsSecond);
+
+    /* filtro por temperamento adaptado a la quer */
+    // var t = dogsSeconds.map(t => t.temperaments).join().split(',');
 
     /* Dispatch______________ */
     const dispatch = useDispatch();
@@ -74,20 +75,11 @@ const Home = () => {
 
     const handleChangeTemp = ({ target }) => {
         setLoading(true)
-        console.log(target.value);
         const dog = async () => {
             await dispatch(getTemperamentFilter(target.value));
         }
         dog();
-    }
-
-    const handleChangeBreed = ({ target }) => {
-        dispatch(getBreedFilter(target.value))
-    }
-
-    const handlerFilterCreate = ({ target }) => {
-        dispatch(getFilterCreated(target.value))
-    }
+    }   
 
     const handleAscendent = ({ target }) => {
         dispatch(getOrder(target.value))
@@ -125,7 +117,6 @@ const Home = () => {
 
 
     const handleShowNav = () => setShowNav(!showNav);
-    console.log(showNav)
 
     /* Loading______________________________ */
     if (loading) {
@@ -157,15 +148,14 @@ const Home = () => {
                                 handleSearch={handleSearch}
                                 search={search}
                                 handleChangeTemp={handleChangeTemp}
-                                temperaments={temperaments}
                                 dogsSeconds={dogsSeconds}
-                                handleChangeBreed={handleChangeBreed}
-                                handlerFilterCreate={handlerFilterCreate}
                                 handleAscendent={handleAscendent}
                                 handleWeight={handleWeight}
                                 handkerShowAllRaces={handkerShowAllRaces}
                                 showNav={showNav}
                                 handleShowNav={handleShowNav}
+                                setdogsCurrent={setdogsCurrent}
+                                /* t={t} */
                             />
                         </div>
 

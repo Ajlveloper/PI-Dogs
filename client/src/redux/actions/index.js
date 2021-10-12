@@ -62,13 +62,11 @@ export const getCreate = (payload) => {
     return async () => {
         try {
             let createDog = await axios.post('http://localhost:3001/dogs', payload)
-            console.log(createDog)
             return createDog;
         } catch (error) {
             console.log(error)
             return [];
         }
-
     }
 }
 

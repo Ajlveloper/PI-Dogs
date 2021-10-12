@@ -15,7 +15,6 @@ const initialState = {
     dogs: [],
     temperamentAll: [],
     dogsSecond: [],
-    breedDogs: [],
     dogDetail: {}
 }
 
@@ -26,7 +25,6 @@ const reduce = (state = initialState, action) => {
                 ...state,
                 dogs: action.payload,
                 dogsSecond: action.payload,
-                breedDogs: action.payload,
             };
         case GET_TEMPERAMENTS:
             return {
@@ -39,7 +37,7 @@ const reduce = (state = initialState, action) => {
                 ...state, dogs: filterDogs
             }
         case GET_BREED_FILTER:
-            const allBreed = state.breedDogs;
+            const allBreed = state.dogsSecond;
             const filterBreed = action.breed === 'allBreed' ? allBreed : allBreed.filter(d => d.name.includes(action.breed))
             return {
                 ...state, dogs: filterBreed

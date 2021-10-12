@@ -75,26 +75,32 @@ dogs.post('/dogs', async (req, res) => {
         image
     } = req.body;
 
-    if (name && height_min && height_max && weight_min && weight_max && life_span && temperaments && image) {
-        const createDog = await Dog.create({
-            name: name,
-            height_min: parseInt(height_min),
-            height_max: parseInt(height_max),
-            weight_min: parseInt(weight_min),
-            weight_max: parseInt(weight_max),
-            life_span: life_span,
-            createDB,
-            image: image
-        });
+    try {
+        if (name && height_min && height_max && weight_min && weight_max && life_span && temperaments && image) {
+            const createDog = await Dog.create({
+                name: name,
+                height_min: parseInt(height_min),
+                height_max: parseInt(height_max),
+                weight_min: parseInt(weight_min),
+                weight_max: parseInt(weight_max),
+                life_span: life_span,
+                createDB,
+                image: image
+            });
 
-        const findTemp = await Temperament.findAll({
-            where: { name: temperaments }
-        });
-        createDog.addTemperament(findTemp);
-        res.status(200).send('successful dog creation');
-    } else {
-        res.status(404).send('data is required');
+            const findTemp = await Temperament.findAll({
+                where: { name: temperaments }
+            });
+            createDog.addTemperament(findTemp);
+            res.status(200).send('successful dog creation');
+        } else {
+            res.status(404).send('data is required');
+        }
+    } catch (error) {
+        console.log(error)
+        return [];
     }
+
 })
 
 

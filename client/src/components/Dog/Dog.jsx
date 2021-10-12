@@ -34,12 +34,12 @@ export default function Dog({ img, name, temperament, weight_min, weight_max, id
                         <div className='Flex_p_home'>
                             <div>
                                 <h5 className='FontWeight'>Weight min:</h5>
-                                <p>{weight_min}</p>
+                                <p>{weight_min}kg</p>
                             </div>
 
                             <div>
                                 <h5 className='FontWeight'>Weight max:</h5>
-                                <p>{weight_max}</p>
+                                <p>{weight_max}kg</p>
                             </div>
                         </div>
                     </div>

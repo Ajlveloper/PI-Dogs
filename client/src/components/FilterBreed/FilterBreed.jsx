@@ -1,6 +1,18 @@
 import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import {getBreedFilter} from '../../redux/actions';
 
-function FilterBreed({ handleChangeBreed, dogsSeconds }) {
+function FilterBreed({setdogsCurrent}) {
+    
+    const dogsSeconds = useSelector(state => state.dogsSecond);
+    
+    const dispatch = useDispatch();
+    
+    const handleChangeBreed = ({ target }) => {
+        setdogsCurrent(1)
+        dispatch(getBreedFilter(target.value))
+    }
+
     return (
         <>
             <label className='FontWeight'>Filter by Breed: </label>

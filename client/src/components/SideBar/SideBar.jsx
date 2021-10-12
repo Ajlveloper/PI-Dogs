@@ -8,7 +8,7 @@ import OrderWeight from '../OrderWeight/OrderWeight';
 import { NavLink } from 'react-router-dom';
 import './SideBar.css'
 
-const SideBar = ({ handleSearchBreed, handleSearch, search, handleChangeTemp, temperaments, dogsSeconds, handleChangeBreed, handlerFilterCreate, handleAscendent, handleWeight, handkerShowAllRaces, showNav, handleShowNav }) => {
+const SideBar = ({ handleSearchBreed, handleSearch, search, handleChangeTemp, handleAscendent, handleWeight, handkerShowAllRaces, showNav, handleShowNav, /* t */ setdogsCurrent }) => {
     return (
         <>
             <div className={showNav ? 'SideBar active' : 'SideBar'}>
@@ -22,10 +22,6 @@ const SideBar = ({ handleSearchBreed, handleSearch, search, handleChangeTemp, te
                         <button className='buttom_showAllRaces' onClick={handkerShowAllRaces}>
                             Show all races
                         </button>
-
-                        {/* <button className='buttom_showAllTemperaments' onClick={handkerShowAllRaces}>
-                            Show all Temperaments
-                        </button> */}
                         
                         <SearchBreed
                             handleSearchBreed={handleSearchBreed}
@@ -39,23 +35,24 @@ const SideBar = ({ handleSearchBreed, handleSearch, search, handleChangeTemp, te
 
                         <div>
                             <FilterBreed
-                                dogsSeconds={dogsSeconds}
-                                handleChangeBreed={handleChangeBreed}
-                            />
-                        </div>
-
-                        <div>
-                            <FilterTemperament
-                                handleChangeTemp={handleChangeTemp}
-                                temperaments={temperaments}
+                                setdogsCurrent={setdogsCurrent}
                             />
                         </div>
 
                         <div>
                             <FilterCreate
-                                handlerFilterCreate={handlerFilterCreate}
+                                setdogsCurrent={setdogsCurrent}
                             />
                         </div>
+                        
+                        <div>
+                            <FilterTemperament
+                                handleChangeTemp={handleChangeTemp}
+                                setdogsCurrent={setdogsCurrent}
+                                /* t={t} */
+                            />
+                        </div>
+
 
 
                         {/* Ordenamientos_____________________ */}

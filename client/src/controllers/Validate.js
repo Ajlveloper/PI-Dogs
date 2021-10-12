@@ -1,10 +1,7 @@
-
 const expresiones = {
-    name: /^[a-zA-ZÀ-ÿ\s]{1,20}$/, // Letras y espacios, pueden llevar acentos.
+    name: /^[a-zA-ZÀ-ÿ\s]{1,20}$/, // Letras y espacios, pueden llevar acentos y requiere solo 20 caracteres como max.
     num: /^\d{1,2}$/, //solo números
 }
-
-
 
 export const validate = (input) => {
     let errors = {};
@@ -13,54 +10,54 @@ export const validate = (input) => {
 
     /* Verificacion de nombre de raza__________ */
     if (!input.name) {
-        errors.name = 'Se requiere el nombre de la raza';
+        errors.name = 'Breed name is required';
     } else if (!expresiones.name.test(input.name)) {
-        errors.name = 'Solo se permiten Letras y un máximo de 20 caracteres';
+        errors.name = 'Only letters and a maximum of 20 characters are allowed';
     }
 
     /* Verificacion de altura mínima________ */
     else if (!input.height_min) {
-        errors.height_min = 'Se requiere una altura mínima máximo de dos dígitos';
+        errors.height_min = 'A maximum minimum height of two digits is required';
     } else if (!expresiones.num.test(input.height_min)) {
-        errors.height_min = 'Solo se permiten números y/o positivos';
+        errors.height_min = 'Only numbers and/or positives are allowed';
     }
 
 
     /* Verificacion de altura máxima__________ */
     else if (!input.height_max) {
-        errors.height_max = 'Se requiere una altura máxima de dos dígitos'
+        errors.height_max = 'A maximum height of two digits is required'
     } else if (!expresiones.num.test(input.height_max)) {
-        errors.height_max = 'Solo se permiten números y/o positivos';
+        errors.height_max = 'Only numbers and/or positives are allowed';
     } else if (input.height_min >= input.height_max) {
-        errors.height_max = 'La altura máxima no puede ser menor o igual que la altura mínima';
+        errors.height_max = 'The maximum height cannot be less than or equal to the minimum height';
     }
 
 
     /* Verificacion de peso mínimo__________ */
     else if (!input.weight_min) {
-        errors.weight_min = 'Se requiere un peso mínimo';
+        errors.weight_min = 'Minimum weight required';
     } else if (!expresiones.num.test(input.weight_min)) {
-        errors.weight_min = 'Solo se permiten números y/o positivos';
+        errors.weight_min = 'Only numbers and / or positives are allowed';
     }
 
     /* Verificacion de peso máximo______________ */
     else if (!input.weight_max) {
-        errors.weight_max = 'Se requiere un peso máximo';
+        errors.weight_max = 'Maximum weight required';
     } else if (!expresiones.num.test(input.weight_max)) {
-        errors.weight_max = 'Solo se permiten números y/o positivos';
+        errors.weight_max = 'Only numbers and/or positives are allowed';
     } else if (input.weight_min >= input.weight_max) {
-        errors.weight_max = 'El peso máximo no puede ser menor o igual que el peso mínimo';
+        errors.weight_max = 'The maximum weight cannot be less than or equal to the minimum weight';
     } 
     
     
     /* Verificacion de año de vida________________ */
     else if (!input.life_span) {
-        errors.life_span = 'Se requiere el rango de años de vida';
+        errors.life_span = 'The range of years of life is required';
     }
 
     /* Verificacion de la imagen */
     else if (!input.image) {
-        errors.image = 'Se requiere una URL para la imagen';
+        errors.image = 'A URL is required for the image';
     }
 
     return errors;

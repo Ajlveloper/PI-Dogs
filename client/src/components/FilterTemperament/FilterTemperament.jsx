@@ -1,6 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { useSelector } from 'react-redux';
 
-const FilterTemperament = ({ handleChangeTemp, temperaments }) => {
+const FilterTemperament = ({ handleChangeTemp }) => {
+
+    const temperaments = useSelector(state => state.temperamentAll);
 
     return (
         <>
