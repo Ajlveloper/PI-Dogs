@@ -14,27 +14,26 @@
 
 .Flex_home .Flex_Dogs .Flex_Dog {
     flex-basis      : 50%;
-    /* flex-grow    : 1; */
     margin-bottom   : -4px;
 }
 
 .Flex_home .Flex_Dogs .Flex_img_text {
-    display                  : flex;
-    position                 : relative;
-    /* border                : solid 2px #1e2e3917; */
-    /* background-color      : #1B171761; */
-    background-color         : #73849138;
-    /* background-image      : url(../../assets/img/pawprint.png);
-    background-repeat        : no-repeat;
-    background-size          : 40px;
-    background-position      : 440px 193px; */
-    margin                   : 10px;
-    width                    : 94%;
-    /* margin-left           : 45px; */
-    padding                  : 10px;
-    /* height                : 235px; */
-    height                   : 160px;
-    overflow                 : hidden;
+    display         : flex;
+    position        : relative;
+    background-color: #73849138;
+    margin          : 10px;
+    width           : 94%;
+    padding         : 10px;
+    height          : 160px;
+    overflow        : hidden;
+    box-shadow      : 0px 1px 10px rgba(0, 0, 0, 0.2);
+    transition      : all 0.4s ease;
+}
+
+.Flex_home .Flex_Dogs .Flex_img_text:hover {
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3%);
+
 }
 
 .huella_home {
@@ -62,8 +61,6 @@
 }
 
 .Flex_home .Flex_Dogs .Flex_img_text .img_text_basis img {
-    /* object-fit                : cover; */
-    /* width                     : 87%; */
     width                     : 100%;
     height                    : 114%;
     border-radius             : 10px;
@@ -73,16 +70,16 @@
 
 
 
+
 .Flex_home .Flex_Dogs .Flex_img_text .img_text_basis .bg_image_dog {
-    position                  : absolute;
-    background-image          : linear-gradient(to right top, #d4e6f4, #a7aab88c, #79737c42, #4942456b, #1b1717);
-    object-fit                : cover;
-    height                    : 118%;
-    width                     : 100%;
-    /* width                     : 87%; */
-    top                       : -10px;
-    border-top-right-radius   : 0px;
-    border-bottom-right-radius: 0px;
+    position                     : absolute;
+    background-image             : linear-gradient(to right top, #d4e6f4, #a7aab88c, #79737c42, #4942456b, #1b1717);
+    object-fit                   : cover;
+    height                       : 118%;
+    width                        : 100%;
+    top                          : -10px;
+    border-top-right-radius      : 0px;
+    border-bottom-right-radius   : 0px;
 }
 
 .Flex_home .Flex_Dogs .Flex_img_text .Home_text {
@@ -96,19 +93,18 @@
 }
 
 .Flex_home .Flex_Dogs .Flex_img_text .Home_text .h3_home {
-    margin-bottom            : -7px;
-    color                    : #1B1717;
-    background               : #1B171724;
-    padding                  : 6px;
-    position                 : relative;
-    bottom                   : 12px;
-    left                     : -24px;
-    border-top-left-radius   : 0px;
-    border-bottom-left-radius: 0px;
-    border-top-right-radius  : 6px;
-    /* width                    : 172%; */
-    width                    : 163%;
-    transition               : all 0.3s ease;
+    margin-bottom               : -13px;
+    color                       : #1B1717;
+    background                  : #1B171724;
+    padding                     : 6px;
+    position                    : relative;
+    bottom                      : 12px;
+    left                        : -24px;
+    border-top-left-radius      : 0px;
+    border-bottom-left-radius   : 0px;
+    border-top-right-radius     : 6px;
+    width                       : 164%;
+    transition                  : all 0.3s ease;
 }
 
 .Flex_home .Flex_Dogs .Flex_img_text .Home_text .h3_home:hover {
@@ -126,14 +122,14 @@
 }
 
 .Flex_home .Flex_Dogs .Flex_img_text .Home_text p {
-    line-height: 12px;
+    line-height: 15px;
     font-size  : 11px;
     font-weight: 500;
 }
 
 .Flex_p_home {
     display    : flex;
-    margin-left: 12px;
+    margin-left: 5px;
 }
 
 .Flex_p_home>div {
@@ -144,6 +140,6 @@
     margin-bottom: 1px;
     font-size    : 14px;
     position     : relative;
-    left         : -11px;
-    line-height  : 27px;
+    left         : -5px;
+    line-height  : 18px;
 }

@@ -6,7 +6,6 @@ export const GET_BREED_FILTER = 'GET_BREEDFILTER';
 export const GET_FILTER_CREATED = 'GET_FILTER_CREATED';
 export const ORDER_ASC_DES = 'ORDER_ASC_DES';
 export const ORDER_ORDER_WEIGHT = 'ORDER_ORDER_WEIGHT';
-export const SEARCH_BREED = 'SEARCH_BREED';
 export const GET_DETAIL = 'GET_DETAIL';
 export const GET_CREATE = 'GET_CREATE';
 
@@ -88,38 +87,38 @@ export const getBreedSearch = (breed) => {
 
 
 
-export const getTemperamentFilter = (temperament) => {
+export const getTemperamentFilter = (payload) => {
     return {
         type: GET_TEMPERAMENT_FILTER,
-        temperament
+        payload
     }
 }
 
-export const getBreedFilter = (breed) => {
+export const getBreedFilter = (payload) => {
     return {
         type: GET_BREED_FILTER,
-        breed
+        payload
     }
 }
 
-export const getFilterCreated = (create) => {
+export const getFilterCreated = (payload) => {
     return {
         type: GET_FILTER_CREATED,
-        create
+        payload
     }
 }
 
-export const getOrder = (order) => {
+export const getOrder = (payload) => {
     return {
         type: ORDER_ASC_DES,
-        order
+        payload
     }
 }
 
-export const getOrderWeight = (weight) => {
+export const getOrderWeight = (payload) => {
     return {
         type: ORDER_ORDER_WEIGHT,
-        weight
+        payload
     }
 }
 

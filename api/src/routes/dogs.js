@@ -1,24 +1,23 @@
 const express = require('express');
 const dogs = express.Router();
 const {
-    getDogsApi,
-    getDogsDb,
     getAllDogs
 } = require('../controllers/controllerDogs.js');
 
 const { Dog, Temperament } = require('../db.js');
-const { get } = require('./temperament.js');
 
 dogs.use(express.json());
 
 dogs.get('/dogs', async (req, res) => {
-    // const { name } = req.query;
     const allDogs = await getAllDogs();
 
     try {
-        res.status(200).json(allDogs);
+        allDogs.length ?
+        res.status(200).json(allDogs) :
+        res.status(404).status('Not Results');
     } catch (error) {
         console.log(error)
+        return [];
     }
 
 
@@ -33,10 +32,11 @@ dogs.get('/dogsQ', async (req, res) => {
             const dog = allDogs.filter(d => d.name.toLowerCase().includes(name.toLowerCase()));
             res.status(200).json(dog)
         } else {
-            res.status(404).redirect('/error');
+            res.status(404).send('not results');
         }
     } catch (error) {
         console.log(error)
+        return [];
     }
 
 
@@ -53,12 +53,9 @@ dogs.get('/dogs/:idRaza', async (req, res) => {
         }
     } catch (error) {
         console.log(error)
+        return [];
     }
 
-})
-
-dogs.get('error', (req, res) => {
-    res.send('Not results')
 })
 
 

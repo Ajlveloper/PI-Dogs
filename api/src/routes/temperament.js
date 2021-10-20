@@ -1,6 +1,5 @@
 const express = require('express');
 const temperament = express.Router();
-const { getAllDogs } = require('../controllers/controllerDogs');
 const { getTemperament } = require('../controllers/controllerTemperament.js');
  const { Temperament } = require('../db.js')
 

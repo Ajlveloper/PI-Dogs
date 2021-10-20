@@ -28,7 +28,7 @@ export const validate = (input) => {
         errors.height_max = 'A maximum height of two digits is required'
     } else if (!expresiones.num.test(input.height_max)) {
         errors.height_max = 'Only numbers and/or positives are allowed';
-    } else if (input.height_min >= input.height_max) {
+    } else if (parseInt(input.height_min) >= parseInt(input.height_max)) {
         errors.height_max = 'The maximum height cannot be less than or equal to the minimum height';
     }
 
@@ -45,7 +45,7 @@ export const validate = (input) => {
         errors.weight_max = 'Maximum weight required';
     } else if (!expresiones.num.test(input.weight_max)) {
         errors.weight_max = 'Only numbers and/or positives are allowed';
-    } else if (input.weight_min >= input.weight_max) {
+    } else if (parseInt(input.weight_min) >= parseInt(input.weight_max)) {
         errors.weight_max = 'The maximum weight cannot be less than or equal to the minimum weight';
     } 
     

@@ -66,12 +66,12 @@ const DogDetail = () => {
                                 <div className='Huella_detail'>
                                     <Huella  />
                                 </div>
-                                <p className='FontWeight'>Temperamentos:</p> <p>{Array.isArray(dog.temperaments) ? dog.temperaments?.map(t => t.name).join(', ') : temperaments}</p>
-                                <p className='FontWeight'>Altura min:</p> <p>{height_min}cm</p>
-                                <p className='FontWeight'>Altura max:</p> <p>{height_max}cm</p>
-                                <p className='FontWeight'>Peso min:</p> <p>{weight_min}kg</p>
-                                <p className='FontWeight'>Peso max:</p> <p>{weight_max}kg</p>
-                                <p className='FontWeight'>Años de Vida:</p> <p>{life_span}</p>
+                                <p className='FontWeight'>Temperaments:</p> <p>{Array.isArray(dog.temperaments) ? dog.temperaments?.map(t => t.name).join(', ') : temperaments}</p>
+                                <p className='FontWeight'>Height min:</p> <p>{height_min}cm</p>
+                                <p className='FontWeight'>Height max:</p> <p>{height_max}cm</p>
+                                <p className='FontWeight'>Weight min:</p> <p>{weight_min}kg</p>
+                                <p className='FontWeight'>Weight max:</p> <p>{weight_max}kg</p>
+                                <p className='FontWeight'>Life span:</p> <p>{life_span}</p>
                             </div>
                         </div>
                     </div>

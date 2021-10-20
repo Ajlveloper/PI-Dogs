@@ -27,7 +27,7 @@ const Navbar = () => {
 
             <div className='nav_crear_perro'>
                 <Link to='/createDog'>
-                    <p>Crear perro</p>
+                    <p>Create dog</p>
                 </Link>
             </div>
         </header>

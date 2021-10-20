@@ -1,7 +1,6 @@
 import React from 'react'
 
 const SearchBreed = ({ handleSearchBreed, handleSearch, search }) => {
-    // const [search, setSearch] = useState('');
 
     return (
         <>

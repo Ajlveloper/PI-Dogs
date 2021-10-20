@@ -16,8 +16,8 @@ const FilterCreate = ({ setdogsCurrent }) => {
             <div className='select'>
                 <select onChange={handlerFilterCreate}>
                     <option disabled>Created or existing:</option>
-                    <option value='creados'>Created</option>
                     <option value='existentes'>Existing</option>
+                    <option value='creados'>Created</option>
                 </select>
             </div>
         </>

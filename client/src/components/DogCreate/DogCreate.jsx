@@ -80,7 +80,8 @@ const DogCreate = () => {
             [e.target.name]: e.target.value
         }))
         if (input.name && input.height_min && input.height_max && input.weight_min && input.weight_max && input.life_span && input.temperaments.length && input.image) {
-            dispatch(getCreate(input))
+            dispatch(getCreate(input));
+            alert('Successfully created breed of dog');
         } else {
             alert('Se requieren todos los datos completados');
         }
@@ -116,6 +117,7 @@ const DogCreate = () => {
                                     onChange={handleInput}
                                     onKeyUp={handleInput}
                                     onBlur={handleInput}
+                                    autoComplete='off'
                                 />
                             </div>
                             {errors.name && (<p className='errors'>{errors.name}</p>)}

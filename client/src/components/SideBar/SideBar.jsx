@@ -8,7 +8,19 @@ import OrderWeight from '../OrderWeight/OrderWeight';
 import { NavLink } from 'react-router-dom';
 import './SideBar.css'
 
-const SideBar = ({ handleSearchBreed, handleSearch, search, handleChangeTemp, handleAscendent, handleWeight, handkerShowAllRaces, showNav, handleShowNav, /* t */ setdogsCurrent }) => {
+const SideBar = ({ 
+    handleSearchBreed, 
+    handleSearch, 
+    search, 
+    handleChangeTemp, 
+    handleAscendent, 
+    handleWeight, 
+    handkerShowAllRaces, 
+    showNav, 
+    handleShowNav, 
+    /* t */ 
+    setdogsCurrent 
+}) => {
     return (
         <>
             <div className={showNav ? 'SideBar active' : 'SideBar'}>
@@ -73,7 +85,7 @@ const SideBar = ({ handleSearchBreed, handleSearch, search, handleChangeTemp, ha
                                 </div>
                             </div>
                         </div>
-                        <button onClick={handleShowNav} className='Label_X'>X</button>
+                        <button onClick={handleShowNav} className='Button_X'>X</button>
                     </div>
                 </div>
 

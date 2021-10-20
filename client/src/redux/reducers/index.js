@@ -6,7 +6,6 @@ import {
     GET_FILTER_CREATED,
     ORDER_ASC_DES,
     ORDER_ORDER_WEIGHT,
-    SEARCH_BREED,
     GET_DETAIL
 } from '../actions/index';
 
@@ -24,7 +23,7 @@ const reduce = (state = initialState, action) => {
             return {
                 ...state,
                 dogs: action.payload,
-                dogsSecond: action.payload,
+                dogsSecond: action.payload
             };
         case GET_TEMPERAMENTS:
             return {
@@ -32,24 +31,24 @@ const reduce = (state = initialState, action) => {
             }
         case GET_TEMPERAMENT_FILTER:
             const allDogs = state.dogsSecond;
-            const filterDogs = action.temperament === 'alltemperaments' ? allDogs : allDogs.filter(d => d.temperaments.includes(action.temperament))
+            const filterDogs = action.payload === 'alltemperaments' ? allDogs : allDogs.filter(d => d.temperaments.includes(action.payload))
             return {
                 ...state, dogs: filterDogs
             }
         case GET_BREED_FILTER:
             const allBreed = state.dogsSecond;
-            const filterBreed = action.breed === 'allBreed' ? allBreed : allBreed.filter(d => d.name.includes(action.breed))
+            const filterBreed = action.payload === 'allBreed' ? allBreed : allBreed.filter(d => d.name === action.payload)
             return {
                 ...state, dogs: filterBreed
             }
         case GET_FILTER_CREATED:
             const create = state.dogsSecond;
-            const filterCreate = action.create === 'creados' ? create.filter(d => d.createDB) : create.filter(d => !d.createDB);
+            const filterCreate = action.payload === 'creados' ? create.filter(d => d.createDB) : create.filter(d => !d.createDB);
             return {
                 ...state, dogs: filterCreate
             }
         case ORDER_ASC_DES:
-            let order = action.order === 'ascendent' ? state.dogs.sort((a, b) => {
+            let order = action.payload === 'ascendent' ? state.dogs.sort((a, b) => {
                 if (a.name.toLowerCase() > b.name.toLowerCase()) {
                     return 1
                 } if (a.name.toLowerCase() < b.name.toLowerCase()) {
@@ -66,14 +65,10 @@ const reduce = (state = initialState, action) => {
                 ...state, dogs: order
             }
         case ORDER_ORDER_WEIGHT:
-            let orderWeight = action.weight === 'min' ?
+            let orderWeight = action.payload === 'min' ?
                 state.dogs.sort((a, b) => a.weight_min - b.weight_min) : state.dogs.sort((a, b) => b.weight_max - a.weight_max)
             return {
                 ...state, dogs: orderWeight
-            }
-        case SEARCH_BREED:
-            return {
-                ...state, dogs: action.breed
             }
         case GET_DETAIL:
             return {

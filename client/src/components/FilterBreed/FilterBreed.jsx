@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import {getBreedFilter} from '../../redux/actions';
 
-function FilterBreed({setdogsCurrent}) {
+const FilterBreed = ({setdogsCurrent}) => {
     
     const dogsSeconds = useSelector(state => state.dogsSecond);
     

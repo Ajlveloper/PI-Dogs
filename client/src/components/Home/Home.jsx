@@ -21,7 +21,6 @@ import './Home.css'
 
 const Home = () => {
     /* Estados Locales_____________ */
-    // const [inputTemp, setinputTemp] = useState();
     const [dogsCurrent, setdogsCurrent] = useState(1);
     const [dogsPage] = useState(8);
     const [order, setOrder] = useState('')
@@ -34,7 +33,7 @@ const Home = () => {
     
     const dogsSeconds = useSelector(state => state.dogsSecond);
 
-    /* filtro por temperamento adaptado a la quer */
+    /* filtro por temperamento adaptado a la query */
     // var t = dogsSeconds.map(t => t.temperaments).join().split(',');
 
     /* Dispatch______________ */
@@ -42,8 +41,8 @@ const Home = () => {
 
 
     /* Paginado__________________ */
-    const lastIndex = dogsCurrent * dogsPage;//8
-    const firstIndex = lastIndex - dogsPage;// 0
+    const lastIndex = dogsCurrent * dogsPage;
+    const firstIndex = lastIndex - dogsPage;
     const dogsRender = dogsAll.slice(firstIndex, lastIndex);
 
     const paged = (num) => {
@@ -122,7 +121,7 @@ const Home = () => {
     if (loading) {
         setTimeout(() => {
             setLoading(false)
-        }, 5000);
+        }, 3000);
         return (
             <Loading />
         )
