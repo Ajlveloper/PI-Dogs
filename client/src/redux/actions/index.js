@@ -13,7 +13,7 @@ export const GET_CREATE = 'GET_CREATE';
 export const getDogs = () => {
     return async (dispatch) => {
         try {
-            const dogs = await axios.get('http://localhost:3001/dogs')
+            const dogs = await axios.get('/dogs')
             return dispatch({
                 type: GET_DOGS,
                 payload: dogs.data,
@@ -29,7 +29,7 @@ export const getDogs = () => {
 export const getTemperaments = () => {
     return async (dispatch) => {
         try {
-            const temp = await axios.get('http://localhost:3001/temperaments')
+            const temp = await axios.get('/temperaments')
             return dispatch({
                 type: GET_TEMPERAMENTS,
                 payload: temp.data
@@ -44,7 +44,7 @@ export const getTemperaments = () => {
 export const getDetail = (id) => {
     return async (dispatch) => {
         try {
-            let detailDog = await axios.get(`http://localhost:3001/dogs/${id}`);
+            let detailDog = await axios.get(`/dogs/${id}`);
             return dispatch({
                 type: GET_DETAIL,
                 payload: detailDog.data
@@ -60,7 +60,7 @@ export const getDetail = (id) => {
 export const getCreate = (payload) => {
     return async () => {
         try {
-            let createDog = await axios.post('http://localhost:3001/dogs', payload)
+            let createDog = await axios.post('/dogs', payload)
             return createDog;
         } catch (error) {
             console.log(error)
@@ -72,7 +72,7 @@ export const getCreate = (payload) => {
 export const getBreedSearch = (breed) => {
     return async (dispatch) => {
         try {
-            const dog = await axios.get(`http://localhost:3001/dogsQ?name=${breed}`)
+            const dog = await axios.get(`/dogsQ?name=${breed}`)
             return dispatch({
                 type: GET_DOGS,
                 payload: dog.data,
