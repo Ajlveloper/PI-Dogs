@@ -31,3 +31,39 @@
 ## Finally, you can see what makes it easy to do this sidebar: Search by race, filter by race, temperaments or by external API or those created by the user, Sort by alphabetic order or weight in ascending or descending order:
 
 <img src="./img/SideBar.PNG" alt="SideBar"/>
+
+
+## Quick Start
+
+### IMPORTANT: It is necessary to have at least the latest stable version of Node and NPM. Make sure you have it to be able to correctly install the necessary dependencies to run the project.
+
+To verify which version they have installed:
+
+node -v
+npm -v
+
+To start the project, first make sure you have a .env file in / api with the following environment variables:
+
+(The variables that start with DB are related to the database, in this project postgeSQL was used. The other variables correspond to the port of the back-end server. A database must be created in postgres with the name "dogs" )
+
+To start the project, run the following commands in both \ api and \ client:
+
+npm install
+npm start
+
+## Technologies used.
+
+### **In ./api:**
+
+- Node.js.
+- Express.js.
+- database: Sequelize (ORM), PostgreSQL.
+
+### **In ./client:**
+
+- Javascript.
+- React.js.
+- Redux.
+- HTML5.
+- CSS3.
+
