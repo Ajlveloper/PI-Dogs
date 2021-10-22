@@ -99,7 +99,7 @@ select::-ms-expand {
   background-color: #1b1717;
   position        : relative;
   display         : flex;
-  width           : 200px;
+  width           : 214px;
   height          : 33px;
   border-radius   : 3px;
 }

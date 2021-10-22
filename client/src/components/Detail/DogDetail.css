@@ -1,6 +1,6 @@
 .DogDetail_general {
     position        : relative;
-    height          : 700px;
+    height          : 100%;
     display         : flex;
     background-color: #d4e6f4;
 }

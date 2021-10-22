@@ -1,9 +1,9 @@
 .SideBar {
-    position   : absolute;
-    top        : 0;
-    left       : -100%;
-    bottom     : 0;
-    transition : all 0.5s ease;
+    position  : absolute;
+    top       : 0;
+    left      : -100%;
+    bottom    : 0;
+    transition: all 0.5s ease;
 }
 
 .SideBar.active {
@@ -40,9 +40,9 @@
 }
 
 .SideBar .Container_Lateral .Lateral .button_search {
-    margin-left: 62px;
-    margin-top : 42px;
-    transition : all 0.3s ease;
+    width     : 100%;
+    margin-top: 42px;
+    transition: all 0.3s ease;
 }
 
 .SideBar .Container_Lateral .Lateral .button_search:hover {
