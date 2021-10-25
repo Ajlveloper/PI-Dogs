@@ -55,7 +55,6 @@ const DogCreate = () => {
             ...input,
             [e.target.name]: e.target.value
         }))
-        // console.log(input)
     }
 
     const handlerTemperament = ({ target }) => {
@@ -63,7 +62,6 @@ const DogCreate = () => {
             ...input,
             temperaments: [...input.temperaments, target.value]
         })
-        console.log(input.temperaments)
     }
 
     const handlerDeleteTemperament = (t) => {

@@ -34,7 +34,6 @@ const DogDetail = () => {
     }, [dispatch, idDog])
 
     if (loading) {
-        console.log('Loading entro')
         setTimeout(() => {
             setLoading(false)
         }, 1000);
