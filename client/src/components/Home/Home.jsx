@@ -195,6 +195,7 @@ const Home = () => {
                     dogsAll={dogsAll.length}
                     paged={paged}
                     dogsPage={dogsPage}
+                    dogsCurrent={dogsCurrent}
                 />
 
 

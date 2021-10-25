@@ -33,9 +33,14 @@ footer {
     transition   : all 0.5s ease;
 }
 
-.flexPaged button:link {
-    color: #4494d1;
+.li.active {
+    border-bottom: solid 1px #d4e6f4;
 }
+
+.li {
+    border-bottom: none;
+}
+
 .flexPaged button:hover {
     border-bottom: solid 1px #d4e6f4;
 }
