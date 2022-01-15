@@ -16,7 +16,7 @@ export const getDogs = () => {
             const dogs = await axios.get('/dogs')
             return dispatch({
                 type: GET_DOGS,
-                payload: dogs.data,
+                payload: dogs.data
             })
 
         } catch (error) {

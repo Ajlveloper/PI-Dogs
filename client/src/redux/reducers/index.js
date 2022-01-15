@@ -14,7 +14,7 @@ const initialState = {
     dogs: [],
     temperamentAll: [],
     dogsSecond: [],
-    dogDetail: {}
+    dogDetail: {},
 }
 
 const reduce = (state = initialState, action) => {
