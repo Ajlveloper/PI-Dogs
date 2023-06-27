@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getDetail } from "../../redux/actions";
 import { useParams } from "react-router";
@@ -40,6 +40,7 @@ const DogDetail = () => {
     setLoading(true);
     detail();
   }, [dispatch, idDog]);
+
 
     return (
         <>

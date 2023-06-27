@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a80045c4.chunk.css",
+    "main.js": "/static/js/main.19c3ae1f.chunk.js",
+    "main.js.map": "/static/js/main.19c3ae1f.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.16896bf4.js",
+    "runtime-main.js.map": "/static/js/runtime-main.16896bf4.js.map",
+    "static/js/2.3b169653.chunk.js": "/static/js/2.3b169653.chunk.js",
+    "static/js/2.3b169653.chunk.js.map": "/static/js/2.3b169653.chunk.js.map",
+    "static/js/3.17c6f5f8.chunk.js": "/static/js/3.17c6f5f8.chunk.js",
+    "static/js/3.17c6f5f8.chunk.js.map": "/static/js/3.17c6f5f8.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.a80045c4.chunk.css.map": "/static/css/main.a80045c4.chunk.css.map",
+    "static/js/2.3b169653.chunk.js.LICENSE.txt": "/static/js/2.3b169653.chunk.js.LICENSE.txt",
+    "static/media/NotResults.css": "/static/media/giphy.e62f8f6c.gif",
+    "static/media/LandingPage.css": "/static/media/pawprint.9112b3e1.png",
+    "static/media/running.ceea6d38.mp4": "/static/media/running.ceea6d38.mp4"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.16896bf4.js",
+    "static/js/2.3b169653.chunk.js",
+    "static/css/main.a80045c4.chunk.css",
+    "static/js/main.19c3ae1f.chunk.js"
+  ]
+}
