@@ -1,26 +1,26 @@
 .DogDetail_general {
     position        : relative;
-    height          : 100%;
+    min-height      : 92.4vh;
     display         : flex;
     background-color: #d4e6f4;
 }
 
 .DogDetail_general .H2Detail {
-    position           : relative;
-    flex-basis         : 50%;
-    display            : flex;
-    justify-content    : center;
-    align-items        : center;
-    color              : #d4e6f4;
-    background-color   : #1B1717;
+    position        : relative;
+    flex-basis      : 50%;
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+    color           : #d4e6f4;
+    background-color: #1B1717;
 }
 
 .DogDetail_general .H2Detail .bg_H2Detail {
-    position        : absolute;
-    top             : 0;
-    bottom          : 0;
-    left            : 0;
-    right           : 0;
+    position: absolute;
+    top     : 0;
+    bottom  : 0;
+    left    : 0;
+    right   : 0;
 }
 
 .DogDetail_general .DogDeatil {
@@ -58,10 +58,10 @@
 }
 
 .DogDetail_general .DogDeatil img {
-    height          : 337px;
-    display         : block;
-    width           : 400px;
-    border-radius   : 4px;
+    height       : 337px;
+    display      : block;
+    width        : 400px;
+    border-radius: 4px;
 }
 
 .DogDetail_general .DogDeatil .DogDeatil_Div div:last-of-type {
@@ -91,4 +91,20 @@
     transform: rotate(-0.140turn);
     opacity  : 0.2;
     color    : #1B1717;
+}
+
+@media (max-width: 600px) {
+    .DogDetail_general .H2Detail {
+        display: none;
+    }
+
+    .DogDetail_general .DogDeatil .DogDeatil_Div {
+        position: static;
+        max-width: initial;
+    }
+
+    .DogDetail_general .DogDeatil {
+        flex-basis: 100%;
+        padding: 1rem;
+    }
 }

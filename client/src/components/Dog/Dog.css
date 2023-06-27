@@ -13,18 +13,19 @@
 }
 
 .Flex_home .Flex_Dogs .Flex_Dog {
-    flex-basis      : 50%;
-    margin-bottom   : -4px;
+    flex-basis   : 335px;
+    margin-bottom: -4px;
 }
 
 .Flex_home .Flex_Dogs .Flex_img_text {
     display         : flex;
+    flex-direction  : column;
+    gap             : 1rem;
     position        : relative;
     background-color: #73849138;
     margin          : 10px;
-    width           : 94%;
-    padding         : 10px;
-    height          : 160px;
+    width           : 335px;
+    height          : 350px;
     overflow        : hidden;
     box-shadow      : 0px 1px 10px rgba(0, 0, 0, 0.2);
     transition      : all 0.4s ease;
@@ -32,88 +33,65 @@
 
 .Flex_home .Flex_Dogs .Flex_img_text:hover {
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
-    transform: translateY(-3%);
+    transform : translateY(-3%);
 
 }
 
 .huella_home {
-    display     : block;
-    width       : 200px;
-    position    : absolute;
-    /* top      : 48%;
-    left        : 75%; */
-    top         : 39%;
-    left        : 73%;
-    transform   : rotate(-0.1turn) scale(1.5, 1.5);
-    opacity     : 0.1;
+    display  : block;
+    width    : 200px;
+    position : absolute;
+    top      : 39%;
+    left     : 73%;
+    transform: rotate(-0.1turn) scale(1.5, 1.5);
+    opacity  : 0.1;
 }
 
 
 .Flex_home .Flex_Dogs .Flex_img_text .img_text_basis {
-    position       : relative;
-    display        : flex;
-    justify-content: center;
-    align-items    : center;
-    object-fit     : contain;
-    top            : -1px;
-    left           : -22px;
-    flex-basis     : 43%;
+    height  : 58%;
+    width   : 100%;
+    position: relative;
 }
 
 .Flex_home .Flex_Dogs .Flex_img_text .img_text_basis img {
     width                     : 100%;
-    height                    : 114%;
+    height                    : 100%;
     border-radius             : 10px;
     border-top-right-radius   : 0px;
     border-bottom-right-radius: 0px;
+    object-fit                : cover;
+    object-position           : 100% 20%;
 }
 
 
 
-
 .Flex_home .Flex_Dogs .Flex_img_text .img_text_basis .bg_image_dog {
-    position                     : absolute;
-    background-image             : linear-gradient(to right top, #d4e6f4, #a7aab88c, #79737c42, #4942456b, #1b1717);
-    object-fit                   : cover;
-    height                       : 118%;
-    width                        : 100%;
-    top                          : -10px;
-    border-top-right-radius      : 0px;
-    border-bottom-right-radius   : 0px;
+    position                  : absolute;
+    background-image          : linear-gradient(to right top, #d4e6f4, #a7aab88c, #79737c42, #4942456b, #1b1717);
+    height                    : 100%;
+    width                     : 100%;
+    top                       : 0;
+    border-top-right-radius   : 0px;
+    border-bottom-right-radius: 0px;
 }
 
 .Flex_home .Flex_Dogs .Flex_img_text .Home_text {
     display        : flex;
     flex-direction : column;
-    padding        : 2px;
     text-decoration: none;
     color          : #1B1717;
-    flex-basis     : 40%;
-
 }
 
 .Flex_home .Flex_Dogs .Flex_img_text .Home_text .h3_home {
-    margin-bottom               : -13px;
-    color                       : #1B1717;
-    background                  : #1B171724;
-    padding                     : 6px;
-    position                    : relative;
-    bottom                      : 12px;
-    left                        : -24px;
-    border-top-left-radius      : 0px;
-    border-bottom-left-radius   : 0px;
-    border-top-right-radius     : 6px;
-    width                       : 164%;
-    transition                  : all 0.3s ease;
+    color     : #1B1717;
+    background: #1B171724;
+    padding   : 6px;
+    position  : relative;
+    bottom    : 12px;
+    width     : 100%;
+    transition: all 0.3s ease;
 }
-
-.Flex_home .Flex_Dogs .Flex_img_text .Home_text .h3_home:hover {
-    background-color: #1B1717;
-    color           : #d4e6f4;
-}
-
-
-
 
 
 .Flex_home .Flex_Dogs .Flex_img_text .Home_text h3 {
@@ -122,24 +100,27 @@
 }
 
 .Flex_home .Flex_Dogs .Flex_img_text .Home_text p {
-    line-height: 15px;
-    font-size  : 11px;
+    font-size  : .8rem;
     font-weight: 500;
 }
 
 .Flex_p_home {
-    display    : flex;
-    margin-left: 5px;
+    display: flex;
 }
 
 .Flex_p_home>div {
     margin-right: 15px;
 }
 
-.Flex_home .Flex_Dogs .Flex_img_text .Home_text div {
-    margin-bottom: 1px;
-    font-size    : 14px;
-    position     : relative;
-    left         : -5px;
-    line-height  : 18px;
+.Flex_home .Flex_Dogs .Flex_img_text .Home_text .Home_text__text-container {
+    display       : flex;
+    flex-direction: column;
+    font-size     : 1.1rem;
+    position      : relative;
+    height        : 100px;
+    padding-left  : 1rem;
+    padding-bottom: .5rem;
+    grid-gap      : 0.1rem;
+    overflow-y    : auto;
+    gap           : 0.1rem;
 }

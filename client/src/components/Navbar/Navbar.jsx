@@ -14,7 +14,7 @@ const Navbar = () => {
                     </div>
                 </Link>
 
-                <div>
+                <div className='flex_logo__text'>
                     <h1>SoBeDog</h1>
                 </div>
             </div>

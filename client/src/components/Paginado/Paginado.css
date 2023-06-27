@@ -44,3 +44,9 @@ footer {
 .flexPaged button:hover {
     border-bottom: solid 1px #d4e6f4;
 }
+
+@media (max-width: 600px) {
+    footer {
+        height: auto;
+    }
+}

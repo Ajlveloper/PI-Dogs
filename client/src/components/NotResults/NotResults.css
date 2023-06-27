@@ -31,3 +31,19 @@
     height             : 431px;
     border-radius      : 4px;
 }
+
+@media (max-width: 600px) {
+    .Flex_Results {
+        flex-direction: column;
+        justify-content: initial;
+    }
+
+    .Flex_Results .Text-results, .Results_image {
+        position: static;
+    }
+
+    .Flex_home .Flex_Dogs div {
+        width: 344px;
+    }
+
+}

@@ -24,7 +24,6 @@ const Home = () => {
   const [dogsCurrent, setdogsCurrent] = useState(1);
   const [dogsPage] = useState(8);
   const [order, setOrder] = useState("");
-//   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
   const [showNav, setShowNav] = useState(false);
 
@@ -32,9 +31,8 @@ const Home = () => {
   const dogsAll = useSelector((state) => state.dogs);
 
   const dogsSeconds = useSelector((state) => state.dogsSecond);
-//   const loadingRedux = useSelector((state) => state.loading);
 
-const { loading, setLoading } = useContext(LoadingContext)
+  const { loading, setLoading } = useContext(LoadingContext);
 
   /* filtro por temperamento adaptado a la query */
   // var t = dogsSeconds.map(t => t.temperaments).join().split(',');
@@ -50,6 +48,7 @@ const { loading, setLoading } = useContext(LoadingContext)
   const paged = (num) => {
     setLoading(true);
     setdogsCurrent(num);
+    setLoading(false);
   };
 
   /* Efectos Secundarios____________ */
@@ -57,23 +56,15 @@ const { loading, setLoading } = useContext(LoadingContext)
     const dogs = async () => {
       try {
         await dispatch(getDogs());
+        await dispatch(getTemperaments());
       } catch (error) {
         console.log(error);
       } finally {
         setLoading(false);
       }
     };
-    setLoading(true);
     dogs();
-  }, [dispatch, setLoading]);
-
-  useEffect(() => {
-    setLoading(true);
-    const temp = async () => {
-      await dispatch(getTemperaments());
-    };
-    temp();
-  }, [dispatch, setLoading]);
+  }, []);
 
   /* Handlers________________ */
 
@@ -83,6 +74,7 @@ const { loading, setLoading } = useContext(LoadingContext)
       await dispatch(getTemperamentFilter(target.value));
     };
     dog();
+    setLoading(false);
   };
 
   const handleAscendent = ({ target }) => {
@@ -110,27 +102,27 @@ const { loading, setLoading } = useContext(LoadingContext)
       } else alert("Se requieren datos");
     };
     dog();
+    setLoading(false);
     setSearch("");
   };
 
   const handkerShowAllRaces = (t) => {
     const dogs = async () => {
-        try {
-          await dispatch(getDogs());
-        } catch (error) {
-          console.log(error);
-        } finally {
-          setLoading(false);
-        }
-      };
-      setLoading(true);
-      dogs();
+      try {
+        await dispatch(getDogs());
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    setLoading(true);
+    dogs();
   };
 
   const handleShowNav = () => setShowNav(!showNav);
 
   /* Loading______________________________ */
-
   return (
     /* modularizar todo lo necesario y hacer la lógica y pasarlo por props a los componentes ideales */
     loading ? (
@@ -168,33 +160,28 @@ const { loading, setLoading } = useContext(LoadingContext)
 
           {/* Renderizacion____________________ */}
           <div className="Flex_Dogs">
-            {
-              dogsRender.length !== 0 ? (
-                dogsRender.length &&
-                dogsRender?.map((d) => (
-                  <div className="Flex_Dog" key={d.id}>
-                    <Dog
-                      img={d.image}
-                      name={d.name}
-                      temperament={
-                        Array.isArray(d.temperaments)
-                          ? d.temperaments.map((t) => t.name).join(", ")
-                          : d.temperaments
-                      }
-                      weight_min={d.weight_min}
-                      weight_max={d.weight_max}
-                      id={d.id}
-                    />
-                  </div>
-                ))
-              ) : (
-                // setTimeout(() => {
-                <>
-                  <NotResults />
-                </>
-              )
-              // }, 1000)
-            }
+            {!loading && dogsRender.length ? (
+              dogsRender?.map((d) => (
+                <div className="Flex_Dog" key={d.id}>
+                  <Dog
+                    img={d.image}
+                    name={d.name}
+                    temperament={
+                      Array.isArray(d.temperaments)
+                        ? d.temperaments.map((t) => t.name).join(", ")
+                        : d.temperaments
+                    }
+                    weight_min={d.weight_min}
+                    weight_max={d.weight_max}
+                    id={d.id}
+                  />
+                </div>
+              ))
+            ) : (
+              <>
+                <NotResults />
+              </>
+            )}
           </div>
         </main>
 
@@ -208,85 +195,6 @@ const { loading, setLoading } = useContext(LoadingContext)
       </>
     )
   );
-
-  // if (loading) {
-  //     setTimeout(() => {
-  //         setLoading(false)
-  //     }, 3000);
-  //     return (
-  //         <Loading />
-  //     )
-  // } else {
-  //     return (
-  //         /* modularizar todo lo necesario y hacer la lógica y pasarlo por props a los componentes ideales */
-  //         <>
-  //             {/* <Loading loading={loading} /> */}
-  //             <Navbar />
-
-  //             <main className='Flex_home'>
-  //                 <div className='Flex_basis_sideBar Flex_basis '>
-
-  //                     <div className={showNav ? 'svg active' : 'svg'} >
-  //                         <button onClick={handleShowNav}>
-  //                             <Menu />
-  //                         </button>
-  //                     </div>
-
-  //                     <div>
-  //                         <SideBar
-  //                             handleSearchBreed={handleSearchBreed}
-  //                             handleSearch={handleSearch}
-  //                             search={search}
-  //                             handleChangeTemp={handleChangeTemp}
-  //                             dogsSeconds={dogsSeconds}
-  //                             handleAscendent={handleAscendent}
-  //                             handleWeight={handleWeight}
-  //                             handkerShowAllRaces={handkerShowAllRaces}
-  //                             showNav={showNav}
-  //                             handleShowNav={handleShowNav}
-  //                             setdogsCurrent={setdogsCurrent}
-  //                             /* t={t} */
-  //                         />
-  //                     </div>
-
-  //                 </div>
-
-  //                 {/* Renderizacion____________________ */}
-  //                 <div className='Flex_Dogs'>
-  //                     {
-  //                         dogsRender.length !== 0 ? dogsRender.length && dogsRender?.map(d => (
-  //                             <div className='Flex_Dog' key={d.id}>
-  //                                 <Dog
-  //                                     img={d.image}
-  //                                     name={d.name}
-  //                                     temperament={Array.isArray(d.temperaments) ? d.temperaments.map(t => t.name).join(', ') : d.temperaments}
-  //                                     weight_min={d.weight_min}
-  //                                     weight_max={d.weight_max}
-  //                                     id={d.id}
-  //                                 />
-  //                             </div>
-  //                         )) :
-  //                             // setTimeout(() => {
-  //                             <>
-  //                                 <NotResults />
-  //                             </>
-  //                         // }, 1000)
-
-  //                     }
-  //                 </div>
-  //             </main>
-
-  //             {/* Paginacion____________________ */}
-  //             <Paginado
-  //                 dogsAll={dogsAll.length}
-  //                 paged={paged}
-  //                 dogsPage={dogsPage}
-  //                 dogsCurrent={dogsCurrent}
-  //             />
-
-  //         </>
-  //     )
-  // }
 };
 
 export default Home;

@@ -36,8 +36,8 @@
 }
 
 .Flex_navbar p {
-    display   : inline-block;
-    transition: all 0.5s ease;
+    display      : inline-block;
+    transition   : all 0.5s ease;
     border-bottom: 1px solid transparent;
 }
 
@@ -55,4 +55,32 @@
     display        : flex;
     justify-content: space-evenly;
     width          : 345px;
+}
+
+@media (max-width: 600px) {
+    .Flex_navbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        padding: 10px 2rem;
+        justify-content: initial;
+        gap: 2rem
+    }
+
+    .flex_logo {
+        width: auto;
+    }
+    .flex_logo .flex_logo__text {
+        display: none;
+    }
+
+    .nav_crear_perro, .nav_crear_perro a {
+        display: block;
+        width: max-content;
+    }
+
+    .Flex_navbar p,
+    .Flex_navbar h1 {
+        font-size: 17px;
+    }
 }

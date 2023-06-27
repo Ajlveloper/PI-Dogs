@@ -30,3 +30,24 @@
 .Flex_basis_sideBar div {
     min-height: 15%;
 }
+
+
+@media (max-width: 600px) {
+    .Flex_home {
+        justify-content: flex-end;
+    }
+
+    .Flex_home .svg {
+        position: fixed;
+        top: 0;
+        right: -10px;
+        z-index: 10;
+    }
+    .Flex_home .svg button {
+        background-color: transparent;
+    }
+
+    .Flex_home svg {
+        color: #d4e6f4;
+    }
+}

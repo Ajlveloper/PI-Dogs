@@ -2,8 +2,9 @@
     background-color: #d4e6f4;
 }
 
-.Form_general header p, .Form_general header h1 {
-    color: #1B1717;    
+.Form_general header p,
+.Form_general header h1 {
+    color: #1B1717;
 }
 
 .Form_general header svg {
@@ -19,7 +20,7 @@
 }
 
 .Form_general header p {
-    transition: all 0.5s ease;
+    transition   : all 0.5s ease;
     border-bottom: 1px solid transparent;
 }
 
@@ -35,7 +36,7 @@
     right           : 0;
     left            : 0;
     width           : 100%;
-    height          : 110vh;
+    min-height      : 92.4vh;
     display         : flex;
     justify-content : center;
     align-items     : center;
@@ -54,12 +55,12 @@
 }
 
 .Flex_dog_create_form form label {
-    display         : inline-block;
-    color           : #d4e6f4;
-    margin-top      : 5px;
-    margin-bottom   : 7px;
-    font-weight     : bold;
-    font-size       : 17px;
+    display      : inline-block;
+    color        : #d4e6f4;
+    margin-top   : 5px;
+    margin-bottom: 7px;
+    font-weight  : bold;
+    font-size    : 17px;
 }
 
 
@@ -102,14 +103,14 @@
 }
 
 .Flex_dog_create_form .select_form::after {
-    content            : '\25BC';
-    color              : #d4e6f4;
-    position           : absolute;
-    top                : 1px;
-    right              : 4px;
-    padding            : 3px 3px;
-    pointer-events     : none;
-    transition         : all 0.25s ease;
+    content       : '\25BC';
+    color         : #d4e6f4;
+    position      : absolute;
+    top           : 1px;
+    right         : 4px;
+    padding       : 3px 3px;
+    pointer-events: none;
+    transition    : all 0.25s ease;
 }
 
 .Flex_dog_create_form .Button_form {
@@ -141,7 +142,7 @@
     font-size  : 11px;
     transition : all 0.5s ease;
     font-weight: 600;
-    transition: all 0.5 ease;
+    transition : all 0.5 ease;
 }
 
 .Flex_dog_create_form .Add_Temeperaments {

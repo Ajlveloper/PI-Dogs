@@ -41,12 +41,6 @@ const DogDetail = () => {
     detail();
   }, [dispatch, idDog]);
 
-//   if (loading) {
-//     setTimeout(() => {
-//       setLoading(false);
-//     }, 1000);
-//     return <Loading />;
-//   } else {
     return (
         <>
         <Navbar />

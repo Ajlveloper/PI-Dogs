@@ -11,12 +11,16 @@
 }
 
 .SideBar .Container_Lateral {
-    position  : absolute;
+    position  : fixed;
     width     : 18.5vw;
-    height    : 125%;
+    height    : 100%;
     top       : 0;
-    left      : 0;
+    left      : -50%;
     transition: all 0.5s ease;
+}
+
+.SideBar.active .Container_Lateral {
+    left: 0%;
 }
 
 .SideBar .Container_Lateral .Lateral {
@@ -146,4 +150,13 @@
 .SideBar .Container_Lateral .Lateral .Button_X:hover {
     background-color: #1b1717;
     border          : solid 1px #1b171791;
+}
+
+@media (max-width: 600px) {
+
+    .SideBar .Container_Lateral {
+        z-index: 20;
+        width  : 100%;
+        left   : -100%;
+    }
 }

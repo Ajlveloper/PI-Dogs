@@ -57,16 +57,8 @@ export const getDetail = (id) => {
     }
 }
 
-export const getCreate = (payload) => {
-    return async () => {
-        try {
-            let createDog = await axios.post('/dogs', payload)
-            return createDog;
-        } catch (error) {
-            console.log(error)
-            return [];
-        }
-    }
+export const getCreate = async (payload) => {
+    return axios.post('/dogs', payload);
 }
 
 export const getBreedSearch = (breed) => {
